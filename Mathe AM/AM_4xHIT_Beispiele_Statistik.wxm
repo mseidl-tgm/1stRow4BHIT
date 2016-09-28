@@ -1,0 +1,83 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.08.2 ] */
+
+/* [wxMaxima: comment start ]
+wxMaxima 0.8.3 http://wxmaxima.sourceforge.net
+Maxima 5.19.2 http://maxima.sourceforge.net
+Using Lisp GNU Common Lisp (GCL) GCL 2.6.8 (aka GCL)
+Distributed under the GNU Public License. See the file COPYING.
+Dedicated to the memory of William Schelter.
+The function bug_report() provides bug reporting information.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Statistik und Wahrscheinlichkeitsrechnung
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: section start ]
+Übungsbeispiele zur Statistik
+   [wxMaxima: section end   ] */
+
+/* [wxMaxima: subsect start ]
+Beispiel Kondensatoren
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: comment start ]
+Einer Lieferung von Kondensatoren werden 20 Stück entnommen und ihre Kapazität gemessen. 
+Es ergeben sich folgende Werte (in nF) als Urliste:
+
+53  47  52  49  50  50  47  43  48  50  51  53  54  56  46  49  51  50  49 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: subsect start ]
+Beispiel Blechteile
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: comment start ]
+Bei der Produktion von Blechteilen sind bei der Qualitätskontrolle folgende Fehler aufgetreten:
+
+Fehler #    Fehlerart   Häufigkeit
+    1       Delle        8
+    2       Kratzer     26
+    3       Korrosion    4
+    4       Lackfehler  38
+    5       Verbogen     4
+    6       Gerissen     2
+    7       Maßfehler    2
+    8       Bohrfehler   3
+    9       Sonstige     3
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: subsect start ]
+Beispiel Füllmengen
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: comment start ]
+Eine Messung des Füllgewichtes von 80 automatisch abgefüllten Marmeladegläsern ergab folgende Werte (in g):
+
+93.0  88.2  92.1  91.0  86.9  93.8  91.0  92.0  87.4  92.1
+92.7  93.3  88.8  91.5  90.4  88.1  89.7  88.9  92.7  91.4
+89.6  89.4  87.3  86.5  90.8  90.3  86.9  91.2  89.3  90.4
+94.2  90.4  90.8  91.9  90.8  92.4  88.3  92.0  87.3  93.8
+90.6  88.0  94.0  90.9  88.0  93.1  91.7  89.7  92.7  89.5
+90.7  89.3  89.3  86.5  88.9  87.5  88.2  88.7  90.2  86.3
+93.9  86.4  90.6  87.9  85.0  89.1  91.8  92.3  87.9  95.4
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+(95.4-86.3)/80;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: subsect start ]
+Beispiel Widerstände
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: comment start ]
+Aus einer Lieferung von elektrischen Widerständen gleicher Art werden einige Stück herausgegriffen und gemessen. 
+Dabei werden folgende Werte (in Ohm) gefunden:
+
+98.7  99.3  95.8  101.6  100.4  98.0  96.3
+   [wxMaxima: comment end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

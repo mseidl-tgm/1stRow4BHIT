@@ -1,0 +1,8 @@
+CREATE EXTENSION postgres_fdw;
+
+CREATE SERVER foreign_Server FOREIGN DATA WRAPPER postgres_fdw OPTIONS 
+(host '10.5.*.*), port '5432', dbname 'ds2');
+
+CREATE FOREIGN TABLE horizontal.remote_orders_q12 (orderid SERIAL, orderdate DATE NOT NULL, customerid INT, ......)
+
+SERVER foreign_Server OPTIONS (schema_name 'horizontal', table_name 'order_q12');
