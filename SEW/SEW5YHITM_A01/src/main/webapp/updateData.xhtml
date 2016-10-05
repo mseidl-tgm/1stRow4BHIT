@@ -11,49 +11,37 @@
             <div class="ui-grid-col-12"><h1>Update a Person</h1></div>
         </div>
 
-        <div class="ui-grid">
-            <div class="ui-grid-col-12"><p>In case you don't want to change to the Value don't modify the Value of the inputfield.</p></div>
-        </div>
-
-        <div class="ui-grid">
-            <div class="ui-grid-col-12">
-                <h:outputText value="#{updatePerson.message}" />
-            </div>
-        </div>
-
         <h:form id="form">
 
             <div class="ui-grid">
-                <div class="ui-grid-col-12"><h2>Step 1: Enter the Number of the Person you want to update.</h2></div>
+                <div class="ui-grid-col-12"><h2>Geben Sie die Nummer der Person ein, welche Sie aendern möchten:</h2></div>
             </div>
 
-
-
             <div class="ui-grid">
-                <div class="ui-grid-col-2">Number:</div>
+                <div class="ui-grid-col-2">Nummer:</div>
                 <div class="ui-grid-col-2">
-                    <p:inputText id="id" value="#{updatePerson.toId}" label="id" style="width: 90%">
+                    <p:inputText id="id" value="#{updatePerson.number}" label="id" style="width: 90%">
                         <f:validateLongRange minimum="0" maximum="9999999999" />
                     </p:inputText>
                 </div>
             </div>
 
             <div class="ui-grid" style="margin-bottom: 5px">
-                <div class="ui-grid-col-12"><h2>Step 2: Enter the new information for the Person.</h2></div>
+                <div class="ui-grid-col-12"><h2>Geben Sie die neuen Informationen ein:</h2></div>
             </div>
 
             <div class="ui-grid" style="margin-bottom: 5px">
-                <div class="ui-grid-col-2">Firstname:</div>
-                <div class="ui-grid-col-2"><p:inputText id="firstname" value="#{updatePerson.toFirstName}" label="firstname" style="width: 90%"/></div>
+                <div class="ui-grid-col-2">Vorname:</div>
+                <div class="ui-grid-col-2"><p:inputText id="firstname" value="#{updatePerson.newFirstname}" label="firstname" style="width: 90%"/></div>
             </div>
 
             <div class="ui-grid" style="margin-bottom: 5px">
-                <div class="ui-grid-col-2">Lastname:</div>
-                <div class="ui-grid-col-2"><p:inputText id="lastname" value="#{updatePerson.toLastName}" label="lastname" style="width: 90%"/></div>
+                <div class="ui-grid-col-2">Nachname:</div>
+                <div class="ui-grid-col-2"><p:inputText id="lastname" value="#{updatePerson.newLastname}" label="lastname" style="width: 90%"/></div>
             </div>
 
             <div class="ui-grid" style="margin-bottom: 20px">
-                <div class="ui-grid-col-2">Age:</div>
+                <div class="ui-grid-col-2">Alter:</div>
                 <div class="ui-grid-col-2"><p:inputText id="age" value="#{updatePerson.toAge}" label="age" style="width: 90%"/></div>
             </div>
 
@@ -62,10 +50,15 @@
                 <div class="ui-grid-col-2">
                     <p:commandButton value="Update Person" ajax="false" action="#{updatePerson.updatePerson}" style="width: 90%"/>
                 </div>
-                <div class="ui-grid-col-2"><p:button value="Back to Menu" ajax="false" outcome="index" style="width: 93%"/></div>
+                <div class="ui-grid-col-2"><p:button value="Zurueck zum Menue" ajax="false" outcome="index" style="width: 93%"/></div>
             </div>
 
 
+            <div class="ui-grid">
+                <div class="ui-grid-col-12">
+                    <h:outputText value="#{updatePerson.message}" />
+                </div>
+            </div>
         </h:form>
     </h:body>
 </h:head>

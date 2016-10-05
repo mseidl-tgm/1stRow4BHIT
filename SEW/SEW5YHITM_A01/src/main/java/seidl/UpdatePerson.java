@@ -6,144 +6,109 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * Die Klasse UpdatePerson impliziert die Bean, welche die Funktion des Updaten einer Person übernimmt.
+ * Sie besitzt Attribute, welche in eine vorhandene Entity gesetzt werden. Außerdem wird eine DatenbankSession erstellt
+ * und die Daten übermittelt.
+ * @author Maximilian Seidl
+ * @version 2016-10-05
+ **/
 public class UpdatePerson {
 
-    private Entity_Person loadedPerson;
-    private int toId;
-    private String status;
-    private String toFirstName;
-    private String toLastName;
-    private int toAge;
+    private Entity_Person oldPerson;
+    private int number;
+    private String message;
+    private String newFirstname;
+    private String newLastname;
+    private int newAge;
+
+    private SessionFactory factory;
 
     /**
-     * Gets the status of the transaction
-     * @return The transaction's status
+     * Getter- und Setter- für die Attribute
      */
-    public String getStatus() {
-        return status;
+
+
+    public int getNumber() {
+        return number;
     }
 
-    /**
-     * Sets the status of the transaction
-     * @param status - A string used to set the transaction's status
-     */
-    public void setStatus(String status) {
-        this.status = status;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    /**
-     * Gets the id of the Person which will be changed
-     * @return  The id of the Person which will be changed
-     */
-    public int getToId() {
-        return toId;
+    public String getNewFirstname() {
+        return newFirstname;
     }
 
-    /**
-     * Sets the id of the Person which will be changed to identify him
-     * @param toId - A int used to set the person's id
-     */
-    public void setToId(int toId) {
-        this.toId = toId;
+    public void setNewFirstname(String newFirstname) {
+        this.newFirstname = newFirstname;
     }
 
-    /**
-     * Gets the firstname (new) to which the firstname (old) will be changed to
-     * @return The firstname (new)
-     */
-    public String getToFirstName() {
-        return toFirstName;
+    public String getNewLastname() {
+        return newLastname;
     }
 
-    /**
-     * Sets the new firstname of the selected Person
-     * @param toFirstName - A string used to set the person's firstname
-     */
-    public void setToFirstName(String toFirstName) {
-        this.toFirstName = toFirstName;
+    public void setNewLastname(String newLastname) {
+        this.newLastname = newLastname;
     }
 
-    /**
-     * Gets the lastname (new) to which the lastname (old) will be changed to
-     * @return The lastname (new)
-     */
-    public String getToLastName() {
-        return toLastName;
-    }
-
-    /**
-     * Sets the new lastname of the selected Person
-     * @param toLastName - A string used to set the person's lastname
-     */
-    public void setToLastName(String toLastName) {
-        this.toLastName = toLastName;
-    }
-
-    /**
-     * Gets the age (new) to which the age (old) will be changed to
-     * @return The age (new)
-     */
     public int getToAge() {
-        return toAge;
+        return newAge;
     }
 
-    /**
-     * Sets the new age of the selected Person
-     * @param toAge - A int used to set the person's age
-     */
     public void setToAge(int toAge) {
-        this.toAge = toAge;
+        this.newAge = toAge;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     /**
-     * Opens a Session to the Database, loads the data of the Person which will be changed, starts a new transaction to prevent inconsistent Data.
-     * If the Value of tofirstname and tolastname is empty the value of the field in the database will not be changed
-     * If the toage is set to 0 the value will not be changed
+     * Die Methode updatePerson baut eine Session zur Datenbank auf. Dabei benutzt sie konfigurierte Hibernate.cfg.xml,
+     * in der die Verbindungsdaten sowie der Dialect eingetragen ist.
      *
-     * After the settings were made the data is saved and the status is set to inform the User.
+     * Nach dem Aufbauen der Verbindung/Session wird ein Person-Objekt gesucht, welches zur eingegeben Nummer passt. Danach
+     * beginnt die zweite Transaction, welche dann das Objekt oldPerson updatet und wieder in die Datenbank speichert.
+     *
+     * Für die Übertragung wird eine Transaction gestartet, welche aber nachher mittles commit() geschlossen werden muss.
+     *
+     * Beispiel von http://www.tutorialspoint.com/hibernate/hibernate_examples.htm
      */
     public void updatePerson() {
+        Session session = null;
 
-        try (
-                SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-                Session session = sessionFactory.openSession();
-        ) {
+        try {
+            factory = new Configuration().configure().buildSessionFactory();
+            session = factory.openSession();
 
+            Transaction transact1 = session.beginTransaction();
+            oldPerson = session.find(Entity_Person.class, this.number);
+            transact1.commit();
 
-            this.loadPerson(session);
+            Transaction transact2 = session.beginTransaction();
+            Entity_Person person = session.find(Entity_Person.class, oldPerson.getNumber());
 
-            //create transaction
-            Transaction transact = session.beginTransaction();
-
-            Entity_Person person = session.find(Entity_Person.class, loadedPerson.getNumber());
-
-            person.setLastname(toLastName.equals("") ? loadedPerson.getLastname() : toLastName);
-            person.setFirstname(toFirstName.equals("") ? loadedPerson.getFirstname() : toFirstName);
-            person.setAge(toAge == 0 ? loadedPerson.getAge() : toAge);
+            person.setLastname(newLastname.equals("") ? oldPerson.getLastname() : newLastname);
+            person.setFirstname(newFirstname.equals("") ? oldPerson.getFirstname() : newFirstname);
+            person.setAge(newAge == 0 ? oldPerson.getAge() : newAge);
 
             session.saveOrUpdate(person);
 
-            transact.commit();
+            transact2.commit();
 
             session.close();
 
-            this.status = "Person updated successfully!";
+            this.message = "Person wurde erfolgreich upgedatet!";
         } catch (HibernateException e) {
-            this.status = e.getMessage();
+            this.message = e.getMessage();
         } catch (NullPointerException e) {
-            this.status = "Selected Number didn't match a Person in the Database";
+            this.message = "Die gewünschte Nummer besitzt keine Person in der Datenbank!";
         }
-    }
-
-    private void loadPerson(Session s) {
-        try {
-            //create transaction
-            Transaction transact = s.beginTransaction();
-            loadedPerson = s.find(Entity_Person.class, this.toId);
-            transact.commit();
-        } catch (Exception e) {
-            this.status = "Something went wrong while loading the Person!";
-        }
-
     }
 }
