@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:body>
+
+        <div class="ui-grid">
+            <div class="ui-grid-col-12"><h1>Delete a Person</h1></div>
+        </div>
+
+        <div class="ui-grid">
+            <div class="ui-grid-col-12"><h2>Geben Sie eine Nummer ein, um die entsprechende Person aus der Datenbank zu entfernen</h2></div>
+        </div>
+
+        <h:form id="form">
+            <div class="ui-grid">
+                <div class="ui-grid-col-2">Number:</div>
+
+                <div class="ui-grid-col-2" style="margin-bottom: 20px">
+                    <p:inputText id="age" value="#{deletePerson.number}" label="age" style="width: 90%">
+                        <f:validateLongRange minimum="0" maximum="9999999999" />
+                    </p:inputText>
+                </div>
+            </div>
+
+            <div class="ui-grid">
+                <div class="ui-grid-col-2">
+                    <p:commandButton value="Person entfernen" ajax="false" action="#{deletePerson.deletePersoninDB}" style="width: 90%"/>
+                </div>
+
+                <div class="ui-grid-col-2">
+                    <p:button value="Zurueck zum Menue" ajax="false" outcome="index" style="width: 93%"/>
+                </div>
+            </div>
+
+            <div class="ui-grid" style="margin-bottom: 20px">
+                <div class="ui-grid-col-12">
+                    <h:outputText value="#{deletePerson.message}" />
+                </div>
+            </div>
+
+        </h:form>
+    </h:body>
+</h:head>
+</html>
