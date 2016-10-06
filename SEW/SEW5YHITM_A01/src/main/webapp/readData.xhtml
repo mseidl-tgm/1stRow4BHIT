@@ -6,12 +6,11 @@
 
 <h:head>
     <h:body>
-
-        <p:dataTable id="persons" var="person" value="#{readPerson.entries}" emptyMessage="Bitte drücken Sie, den 'refresh' - Button um die Tabelle zu aktualisieren.">
+        <!--http://www.tutorialspoint.com/jsf/jsf_data_tables.htm-->
+        <p:dataTable id="person" var="person" value="#{readPerson.entries}" emptyMessage="Bitte drücken Sie, den 'refresh' - Button um die Tabelle zu aktualisieren.">
             <f:facet name="header">
                 Tabelle aller Personen
-                <p:commandButton id="toggler" type="button" value="Hide/Show" style="float:right" icon="ui-icon-calculator" />
-                <p:columnToggler datasource="persons" trigger="toggler" />
+
             </f:facet>
 
             <p:column headerText="Nummer">
@@ -32,13 +31,13 @@
         </p:dataTable>
 
         <h:form>
-            <div class="ui-grid" style="margin-top: 20px">
+            <div class="ui-grid" style="margin-top: 30px">
                 <div class="ui-grid-col-2">
-                    <p:commandButton value="Refresh" ajax="false" action="#{readPerson.readEntities}" style="width: 90%"/>
+                    <p:commandButton value="Refresh" ajax="false" action="#{readPerson.readEntities}" style="width: 100%"/>
                 </div>
 
                 <div class="ui-grid-col-2">
-                    <p:button value="Zurueck zum Menue" ajax="false" outcome="index" style="width: 90%"/>
+                    <p:button value="Zurueck zum Menue" ajax="false" outcome="index" style="width: 100%"/>
                 </div>
             </div>
 
