@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Einf\374hrung}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Ziele}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Voraussetzungen}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Aufgabenstellung}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Ergebnisse}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Aufbau der Entwicklungsumgebung}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Virtuelle Maschine}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Netzwerkkonfiguartion}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.3}{PostgreSQL Installation}{subsection.2.1}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Datenbankkonfiguration - User, Rechte}{subsection.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.2}{PostgreSQL Remote-Server Konfiguration}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.3}{Horizontale Fragmentierung}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.4}{Vertikale Fragmentierung}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.5}{Kombinierte Fragmentierung}{section.2}% 14
+\BOOKMARK [1][-]{section.3}{SELECT-Resultate}{}% 15
+\BOOKMARK [2][-]{subsection.3.1}{Zeitaufwand}{section.3}% 16

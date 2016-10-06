@@ -1,0 +1,138 @@
+%!TEX root=../document.tex
+
+\section{Ergebnisse}
+\label{sec:Ergebnisse}
+
+\subsection{Aufbau der Entwicklungsumgebung}
+
+\subsubsection{Virtuelle Maschine}
+
+Wie in der Aufgabenstellung vorgesehen, habe ich mir zwei virtuelle Maschinen in Virtual Box aufgesetzt. Das verwendete Betriebssystem ist hierbei \textit{ubuntu-server 14.04}, welches ich von der offiziellen Ubuntu-Seite heruntergeladen habe.
+Da das Aufsetzen einer VM hier nicht in die Dokumentation gehört, springe ich direkt in ein fertiges Betriebssystem.
+
+\subsubsection{Netzwerkkonfiguartion}
+
+Damit die Kommunikation zwischen den beiden virtuellen Maschinen und dem Host gewährleistet wird, müssen die Netzwerkkarten der Server auf \textbf{Netzwerkbrücke/Networkbridge} umgestellt werden. Des Weiteren muss der \textbf{``Promiscuous-Modus''} auf \textbf{``erlauben für alle VMs und den Host''} gestellt werden, damit eine fehlerfreie Übertragung möglich ist.
+
+\subsubsection{PostgreSQL Installation}
+Auf beiden VMs wird PostgreSQL aufgesetzt, um die Datenbank zu verteilen. Zunächst wird das benötigte Package in einem Packet-Manager heruntergeladen und installiert. Bei Ubuntu handelt es sich hierbei um \textit{aptitude}.
+\begin{lstlisting}[language=bash,caption={PostgreSQL Installation}]
+sudp apt-get install postgreSQL
+\end{lstlisting}
+
+\subsubsection{Datenbankkonfiguration - User, Rechte}
+Bei der Erstkonfiguration von PostgreSQL wird ein default-User mit dem Namen \textit{postgres} angelegt. Mit diesem Benutzer stellt man eine Verbindung zum PostgreSQL-Server her. Danach führt man folgende Schritte durch, um sich den User für diese Aufgabe mit den entsprechenden Rechten anzulegen.
+
+\begin{lstlisting}[language=bash,caption={User, Rechte anlegen}]
+
+postgres=# CREATE ROLE ds2 WITH superuser login;
+postgres=# ALTER ROLE ds2 PASSWORD 'ds2';
+
+seidl@seidl:~$ psql -U ds2 -d ds2
+\end{lstlisting}
+
+\newpage
+Als nächstes muss noch das Konfigurations-File so bearbeitet werden, dass die Datenbank Zugriffe von allen Seiten annimmt.
+Hierbei werden die Files \textbf{/etc/postgresql/9.5/main/postgresql.conf} und \textbf{pg-hba.conf} bearbeitet.
+Im folgenden Listing werden die einzutragenden Kommandos dargestellt:
+\begin{lstlisting}[language=bash,caption={PostgreSQL Konfiguration}]
+host	ds2		ds2		samenet		trust
+
+listen_addresses= '*'
+\end{lstlisting}
+
+\subsection{PostgreSQL Remote-Server Konfiguration}
+Jetzt muss nur noch der Remote-Server richtig den Local-Server als \textbf{foreign-server} eingetragen werden. Dies erfolgt mit folgenden Kommandos in der psql-Konsole:
+\begin{lstlisting}[language=bash,caption={Remote-Server Konfiguration}]
+	CREATE EXTENSION postgres_fdw;
+	CREATE SERVER foreign_server
+	FOREIGN DATA WRAPPER postgres_fdw
+	OPTIONS
+		(host '10.0.106.18', port '5432', dbname 'ds2');
+	CREATE USER MAPPING FOR ds2
+	SERVER foreign_server
+	OPTIONS(user 'ds2', password 'ds2');
+\end{lstlisting}
+
+\subsection{Horizontale Fragmentierung}
+
+Für die horizontale Fragmentierung habe ich mir bei der Tabelle \textbf{customers} überlegt, mit folgenden Trennungen:
+\begin{itemize}
+	\item gender = 'F' - Bedeutet alle Einträge welche dem weiblichen Geschlecht angehören
+	\item age < 21 - und jünger als 21 sind.
+\end{itemize}
+
+Damit die Fragmentierung möglich ist, muss man eine \textbf{FOREIGN TABLE} am Remote-Server erstellen.
+Diese Tabellen holen sich dann die Daten von dem Local-Server und trägt diese in die Tabelle ein.
+Mit einem simplen SELECT-Statement kann man das ganze überprüfen:
+\begin{lstlisting}[language=bash,caption={Horizontale Fragmentierung}]
+SELECT COUNT(*) FROM horizontal.remote_customers_f_under_21;
+\end{lstlisting}
+\newpage
+\subsection{Vertikale Fragmentierung}
+ Für die vertikale Fragmentierung erfolgt ebenfalls eine Trennung der Tabelle \textbf{customers},
+ aber diesmal werden die Spalten getrennt. Die Tabelle wird unterteilt in \textbf{payment-info} und
+ \textbf{non-payment-info}. Zu beachten bei der vertikalen Fragmentierung ist das Eintragen der PRIMARY KEYS in \textbf{beide Tabellen} (sowhol FOREIGN als auch local).
+ 
+ \begin{lstlisting}[language=bash,caption={Vertikale Fragmentierung}]
+ INSERT INTO vertical.customers_payment_info
+ SELECT customerid, creditcardtype, creditcard, creditcardexpiration, age, income FROM customers;
+ \end{lstlisting}
+ 
+ \subsection{Kombinierte Fragmentierung}
+ Die kombinierte Fragmentierung ist die Mischung einer horizontalen, sowie einer vertikalen Fragmentierung.
+ Ich habe mir hierfür folgende Unterteilung überlegt:
+ 
+ \begin{itemize}
+ 	\item Vertikale Fragmentierung
+	 	\subitem Vertrauliche Daten z.B.: Kreditkarte, Passwort
+	\item Horizontale Fragmentierung
+		\subitem Alle Kunden aus den US werden getrennt von den Kunden außerhalb.
+ \end{itemize}
+ 
+ \section{SELECT-Resultate}
+ 
+ \textbf{Horizontale Fragmentierung}
+ \begin{lstlisting}[language=bash,caption={SELECT-horizontal}]
+	SELECT COUNT(*) FROM horizontal.customers_f_under_21;
+	count
+	------
+	429
+	(1 row)
+	
+	SELECT COUNT(*) FROM horizontal.remote.customners_f_under_21;
+	count
+	------
+	429
+	(1 row)
+ \end{lstlisting}
+ 
+ \textbf{kombinierte Fragmentierung}
+  \begin{lstlisting}[language=bash,caption={SELECT-combined}]
+	 SELECT * FROM combined.customers_us_name_phone
+	 NATURAL JOIN
+	 combined.remote_customer_non_us_name_phone
+	 UNION
+	 SELECT * FROM combined.customer_non_us_name_phone
+	 NATURAL JOIN
+	 combined.remote_customer_us_name_phone;
+  \end{lstlisting}
+
+Als Resultat bekommt man wieder eine vollständige \textbf{customer}-Tabelle.
+ 
+
+\subsection{Zeitaufwand}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[!h]
+	\center
+	\begin{tabular}{ | @{\hspace{3mm}} c @{\hspace{3mm}} | @{\hspace{3mm}} l @{\hspace{3mm}} | }
+		\hline Zeitaufwand & Task\\ \hline\hline
+		\textbf{4h} & Schule Labor, Fragmentierungsmethoden ueberlegt\\ \hline
+		\textbf{3h} & Entwicklungsumgebung und Serverkonfiguration + PostgreSQL\\ \hline
+		\textbf{5h} & Umsetzung der Fragmentierungsvarianten\\\hline
+	\end{tabular}
+	\caption{Zeitaufzeichnung}
+	\label{methoden}
+\end{table}
+
+
