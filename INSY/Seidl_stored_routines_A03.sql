@@ -76,23 +76,12 @@ INSERT INTO bestellung VALUES (9, 5, 1);
 INSERT INTO bestellung VALUES (9, 6, 2);
 
 
----FUNCTION DEFINE
+-- FUNCTION DEFINE
 
-SELECT * FROM speise;
-SELECT avg(preis) FROM speise;
-CREATE FUNCTION preiserhoehungLower(DECIMAL,DECIMAL) RETURNS VOID AS '
-UPDATE speise SET preis = preis + $2 WHERE preis<=$1;
-' LANGUAGE SQL;
-
-CREATE FUNCTION preiserhoehungGreater(DECIMAL,DECIMAL,INTEGER) RETURNS VOID AS '
-UPDATE speise SET preis = preis * (100+$3)/100 WHERE preis>$1;
-SELECT preiserhoehungLower($1,$2);
-' LANGUAGE SQL;
-
-CREATE FUNCTION preiserhoehung(DECIMAL,INTEGER) RETURNS VOID AS '
-SELECT preiserhoehungGreater((SELECT AVG(preis) FROM speise),$1,$2);
-' LANGUAGE SQL;
-
-SELECT preiserhoehung(0.15, 10);
-SELECT avg(preis) FROM speise;
-SELECT * FROM speise;
+CREATE OR REPLACE FUNCTION umsatz(INTEGER, CURRENT_DATE) RETURNS NUMERIC AS $$
+	SELECT SUM(speise.preis*bestellung.anzahl)
+	FROM speise, rechnung, bestellung
+	WHERE speise.snr=bestellung.snr
+	AND rechnung.knr=$1 
+	AND rechnung.datum=CURRENT_DATE;
+$$ LANGUAGE SQL;
