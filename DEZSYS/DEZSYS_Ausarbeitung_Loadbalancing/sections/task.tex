@@ -1,0 +1,61 @@
+%!TEX root=../document.tex
+
+\section{Einführung}
+Diese Übung soll einen Einblick in das Themengebiet der  "`Verteilte Datenbanken'' geben. Zunächst wird der verteilte Datenbankentwurf erläutert und in weiterer Folge wird der theoretische Ansatz anhand einer Beispieldatenbank geübt. Hier werden Fragmente einer verteilten Datenbank einer Station zugewiesen, danach erfolgt die Zuweisung zu Postgres-Instanzen.
+
+\subsection{Ziele}
+Das Ziel dieser Übung ist die Allokation im Zuge des "`Datenbankentwurfs einer verteilten Datenbank'' zu üben und anhand eines DBMS zu vertiefen.
+
+Es werden mindestens zwei Datenbankinstanzen installiert, denen im Anschluss die einzelnen Fragmente zugeteilt werden. Diese Zuteilung soll fuer alle Fragmentierungsarten durchgefuehrt werden.
+
+Die Funktionsweise und das Handling von verteilten Datenbanken soll im Anschluss mit SELECT Statements gezeigt werden.
+
+
+\subsection{Voraussetzungen}
+\begin{itemize}
+	\item Grundlagen von verteilten Datenbanken
+	\item Laden der Demo Datenbank "`Dell DVD Store''
+	\item Fragmentierung der Demo Datenbank nach alle 3 Fragmentierungsarten
+	\item SQL Kenntnisse
+	\item Installation von mindestens zwei Postgres Datenbankservern (Version > 9.1)
+	\item fuer manche Linux-Versionen: Installation eines zusaetzlichen Pakets: postgresql-contrib-9.x
+	\item Konfiguration Postgres Foreign Data Wrapper: \url{http://www.postgresql.org/docs/9.4/static/postgres-fdw.html}
+\end{itemize}
+
+\subsection{Aufgabenstellung}
+Unter Verwendung der Sample Database "`Dell DVD Store'' soll eine lokale Datenbank in eine verteilte Datenbank transferiert werden. Hierbei soll die Fragmentierung einer Datenbank durchgefuehrt werden. Basierend auf einer Tabelle/View des DVD Stores sollen folgende Fragmentierungsarten umgesetzt werden:
+\begin{itemize}
+	\item horizontale Fragmentierung nach mindestens 2 Kriterien
+	\item vertikale Fragmentierung
+	\item kombinierte Fragmentierung
+\end{itemize}
+Die Fragmente sollen jeweils in einem Schema mit der Bezeichnung
+\begin{itemize}
+	\item Schema horizontal
+	\item Schema vertical
+	\item kombinierte Fragmentierung
+\end{itemize}
+in Tabellen mit sinnvollen Namen gespeichert werden. Die Fragmentierung soll unter selbst definierten Annahmen spezifiziert werden. Die Annahmen sollen im Protokoll festgehalten werden.
+
+Die Fragmente der Datebank aus dem ersten Teil der Aufgabenstellung sollen zwischen zwei Postgres Datenbankservern verteilt werden.
+
+Folge den Instruktionen der \href{https://elearning.tgm.ac.at/archiv/draftfile.php/1564/user/draft/624435933/dezsy03_verteilte_db_postgres.pdf}{Praesentation}, um den Zugriff auf eine entfernte Postgres Instanz einzurichten. Als entfernte Einheit kann auch eine VM-Instanz verwendet werden.
+
+Nach erfolgreicher Konfiguration sollen die Fragmente der 3 Fragmentierungsarten:
+\begin{itemize}
+	\item horizontal
+	\item vertical
+	\item combination
+\end{itemize}
+und jeweils einer der beiden Postgres Instanzen zugeordnet werden. Ein Fragment soll nach der Zuteilung nur auf einer Instanz vorhanden sein. Zur Unterscheidung, ob ein Fragment lokal oder remote vorhanden ist, sollen alle entfernte Resourcen die Bezeichnung "`remote'' enthalten.
+
+Im Anschluss soll zu jeder Fragmentierungsart von der lokalen Datenbank ein SELECT Statement zum Sammeln aller Daten entworfen werden. Dabei soll gezeigt werden, dass bei der Verteilung keine Datensaetze verloren gegangen sind. Verwenden Sie dazu "`SELECT count(*) FROM ....''
+
+\begin{itemize}
+	\item Anzahl der Datensaetze vor der Fragmentierung
+	\item Anzahl der Datnesaetze der einzelnen Fragmente
+	\item Anzahl der Datensaetze aus dem SELECT statement, das alle Daten wieder zusammenfuegt
+\end{itemize}
+Protokollieren Sie alle Arbeitsschritte, die SELECT Anweisungen und deren Resultate.
+
+\clearpage

@@ -1,0 +1,126 @@
+%!TEX root=../document.tex
+
+
+
+\section{Was ist Load Balancing?}
+Der Begriff Load Balancing (zu deutsch Lastverteilung) beschreibt umfangreiche Berechnungen oder große Mengen von Anfragen, welche auf mehrere parallel arbeitende System verteilt werden. Es gibt verschiedene Ausprägungen, welche mit der Menge* der Kommunikation skalieren. Diese reichen von
+Lastverteilung auf einem System mit mehreren Prozessoren, bis hin zu ganzen Computer-Clustern, welche die Arbeit auf mehrere Rechner aufteilen.
+
+\section{Serverlastverteilung}
+
+Serverlasterverteilung (englisch Server Load Balancing ''SLB'') kommt überall dort zum Einsatz, wo sehr viele Clients eine hohe Anfragedichte erzeugen und damit einen einzelnen Server-Rechner überlasten würden.\newline
+
+Typische Kriterien zur Ermittlung der Notwendigkeit von SLB sind die \textbf{Datenrate}, die \textbf{Anzahl der Clients} und die \textbf{Anfragerate}. \newline
+
+Die Erhöhung der Datenverfügbarkeit wird durh SLB gefördert. Reduntate Datenhaltung wird durh das Einsetzen von mehreren Systemen ermöglicht. Die Aufgabe des SLB ist hier die Vermittlung der Clients an die einzelnen Server. \newline
+
+\section{Verfahren von SLB}
+Es bieten sich einige verschiedene Verfahren, welche bei Server Load Balancing zum Einsatz kommen können. Ein mögliches Verfahren wäre das Vorschalten eines Systems (\textbf{Load Balancer, Frontend Server}), der Anfragen aufteilt, oder die Verwendung von DNS (Domain-Name-System) mit dem sogenannten \textbf{Round-Robin-Verfahren}. Bei Webservern darf eine Serverlastverteilung nicht fehlen, da ein einzelner Host nur eine begrenzte Anzahl an HTTP-Anfragen auf einmal beantworten kann. Es besteht auch die Möglichkeit, dass der Load Balancer die Verschlüsselung zum Client übernimmt und intern die Anfragen auf seine Art und Weiße verarbeitet. \newline
+
+Es bestehen folgende Verfahren:
+\begin{itemize}
+	\item DNS Round Robin
+	\item NAT based SLB
+	\item Flat based SLB
+	\item Anycast SLB
+\end{itemize}
+
+\newpage
+\subsection{DNS Round Robin}
+Lastverteilung per DNS (englisch Round robin DNS) ist die einfachste Technik zur SLB auf Basis des DNS. Da es aber zu einem Caching der DNS-Antworten kommt, ist dieses Verfahren nur manchmal wirklich sinnvoll.
+
+\subsubsection{Aufbau und Funktionsweise}
+DNS lässt es zu, dass einem Namen mehrere IP-Adressen zugewiesen werden können. Dies bedeutet es können mehrere sogenannte \textbf{Resource Records} mit gleichem Label, gleicher Klasse und gleichem Typ entstehen. Eine deartige Anordnung wird als \textit{Resource Record Set} bezeichnet.
+\begin{center}
+
+\begin{lstlisting}[caption=DNS Round Robin Example]
+    server.example.com.   1800  IN  A  192.0.2.70
+    server.example.com.   1800  IN  A  192.0.2.71
+    server.example.com.   1800  IN  A  192.0.2.72
+\end{lstlisting}
+\end{center}
+Wird ein derartiger Name von einem Resolver abgefragt, so liefert der DNS-Server grundsätzlich alle bekannten IP-Adressen zurück, allerdings in wechselnder Reihenfolge. Der erste Request wird dann beispielsweise mit [192.0.2.70, 192.0.2.71, 192.0.2.72] beantwortet und der zweite mit [192.0.2.71, 192.0.2.72, 192.0.2.70]. Es liegt dann in der Verantwortung des Resolvers, welche IP-Adresse er tatsächlich verwendet.
+
+Nach welcher Strategie ein DNS-Server die Reihenfolge vorgibt, kann bei Bind-kompatiblen Nameservern konfiguriert werden. Bei BIND sind drei Varianten möglich: zyklisch, zufällig und fest. Bei der Variante fest werden die IP-Adressen in der Reihenfolge zurückgegeben, in der sie im Nameserver abliegen.
+
+Anmerkung: Bei reversen Zonen der IN-ADDR.ARPA-Domäne ist ein Loadbalancing nicht möglich, obwohl für eine IP-Adresse mehrere Namen definiert werden können. Eine Lastverteilung wäre hier auch nicht sinnvoll.
+
+\subsubsection{Technischer Fortschritt}
+Bei moderneren Resource-Record-Typen wie SRV oder NAPTR lässt sich außerdem noch eine Gewichtung definieren, die festlegt, welche Server-IP-Adressen am häufigsten an erster Stelle stehen. Die entsprechenden Server werden damit häufiger angesprochen.
+
+Bei Record-Typen, die keine Gewichtungsparameter zur Verfügung stellen, besteht die etwas unschöne, aber machbare Alternative darin, die IP-Adressen entsprechend ihrer Gewichtung mehrfach zu vergeben, z. B. ADSL-Leitung dreimal, Funkstrecke nur einmal.
+
+Außerdem gibt es die Möglichkeit, aus einem Pool von möglichen Servern nur einige zurückzuliefern. So werden beispielsweise vom Google-Nameserver immer drei IP-Adressen zurückgeliefert, die teilweise wechseln. Sinnvoll ist auch eine standortbezogene Rücklieferung von IP-Adressen, wenn mehrere verteilte Rechenzentren zur Verfügung stehen – dies wird z. B. von CDNs genutzt.
+
+\subsubsection{Nachteile}
+Die Lastverteilung durch DNS ist natürlich nur in dem Sinn gleichmäßig, was die Zuteilung betrifft. Über die danach entstehende tatsächliche Belastung weiß DNS nichts. Auch wird nicht überprüft, ob die Zielserver überhaupt ansprechbar sind. Vorgeschaltete Skripts können aber die Verfügbarkeit prüfen und nur diejenigen Server im Nameserver eintragen, die aktuell tatsächlich zur Verfügung stehen. Damit lassen sich Lastverteilung und Ausfallsicherung verbinden.
+\subsection{NAT based SLB}
+\subsection{Flat based SLB}
+\subsection{Anycast SLB}
+\subsection{Tabelle}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[!h]
+	\center
+	\begin{tabular}{ | @{\hspace{3mm}} c @{\hspace{3mm}} | @{\hspace{3mm}} l @{\hspace{3mm}} | }
+		\hline Header & Kopf\\ \hline\hline
+		\textbf{Lorem} & Ipsum dolor sit amet, consetetur sadipscing elitr\\ \hline
+		\textbf{Ipsum} & At vero eos et accusam et justo duo dolores et ea rebum.\\
+			& Stet clita kasd gubergren, no sea takimata sanctus\\ \hline
+		\textbf{Dolor} & Consetetur sadipscing elitr, sed diam nonumy\\\hline
+	\end{tabular}
+	\caption{Lorem ipsum dolor sit amet \cite{tanenbaum2007verteilte}}
+	\label{methoden}
+\end{table}
+
+\subsection{Aufzählung}
+
+\begin{itemize}
+	\item \textbf{Lorem ipsum:} dolor sit amet, consetetur sadipscing elitr
+	\item sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
+	\item ut labore et dolore magna aliquyam erat, sed diam voluptua
+\end{itemize}
+
+\subsection{Code}
+
+At vero eos et accusam et justo duo dolores et ea rebum.
+
+\begin{lstlisting}[style=Java, caption=Implizite Transaktion \cite{tanenbaum2007verteilte}]
+try{
+   gTransCur.begin();
+   //Perform the operation inside the transaction
+   not_registered = 
+       gRegistrarObjRef.register_for_courses(student_id,selected_course_numbers);
+
+
+   if (not_registered != null)
+
+     //If operation executes with no errors, commit the transaction
+     boolean report_heuristics = true;
+     gTransCur.commit(report_heuristics);
+
+   } else gTransCur.rollback();
+
+
+} catch(org.omg.CosTransactions.NoTransaction nte) {
+    System.err.println("NoTransaction: " + nte);
+    System.exit(1);
+} catch(org.omg.CosTransactions.SubtransactionsUnavailable e) {
+    System.err.println("Subtransactions Unavailable: " + e);
+    System.exit(1);
+} catch(org.omg.CosTransactions.HeuristicHazard e) {
+    System.err.println("HeuristicHazard: " + e);
+    System.exit(1);
+} catch(org.omg.CosTransactions.HeuristicMixed e) {
+    System.err.println("HeuristicMixed: " + e);
+    System.exit(1);
+}
+\end{lstlisting}
+
+
+https://web.archive.org/web/20040721090101/http://www.oreilly.com/catalog/serverload/chapter/ch07.html
+
+http://www.webopedia.com/TERM/R/Round_Robin_DNS.html
+
+https://de.wikipedia.org/wiki/Lastverteilung_(Informatik)#DNS_Round_Robin
+
+https://de.wikipedia.org/wiki/Lastverteilung_per_DNS
