@@ -3,7 +3,7 @@
 
 
 \section{Was ist Load Balancing?}\cite{Lastverteilung}
-Der Begriff Load Balancing (zu deutsch Lastverteilung) beschreibt umfangreiche Berechnungen oder große Mengen von Anfragen, welche auf mehrere parallel arbeitende System verteilt werden. Es gibt verschiedene Ausprägungen, welche mit der Menge* der Kommunikation skalieren. Diese reichen von
+Der Begriff Load Balancing (zu deutsch Lastverteilung) beschreibt umfangreiche Berechnungen oder große Mengen von Anfragen, welche auf mehrere parallel arbeitende System verteilt werden. Es gibt verschiedene Ausprägungen, welche mit dem Umfang der Kommunikation skalieren. Diese reichen von
 Lastverteilung auf einem System mit mehreren Prozessoren, bis hin zu ganzen Computer-Clustern, welche die Arbeit auf mehrere Rechner aufteilen.
 
 \section{Serverlastverteilung}
@@ -19,15 +19,15 @@ Es bieten sich einige verschiedene Verfahren, welche bei Server Load Balancing z
 
 Es bestehen folgende Verfahren:
 \begin{itemize}
-	\item DNS Round Robin
-	\item NAT based SLB
-	\item Flat based SLB
-	\item Anycast SLB
+	\item \ref{RoundRobin} DNS Round Robin
+	\item \ref{FlatSLB} Flat based SLB
+	\item \ref{NATSLB} NAT based SLB
+	\item \ref{anySLB} Anycast SLB
 \end{itemize}
 
 \newpage
 \subsection{DNS Round Robin}\cite{LastverteilungPerDNS}
-
+\label{RoundRobin}
 
 Lastverteilung per DNS (englisch Round robin DNS) ist die einfachste Technik zur SLB auf Basis des DNS. Da es aber zu einem Caching der DNS-Antworten kommt, ist dieses Verfahren nur manchmal wirklich sinnvoll.
 
@@ -80,7 +80,7 @@ Die Lastverteilung durch DNS ist natürlich nur in dem Sinn gleichmäßig, was d
 \newpage
 
 \subsection{Flat based SLB}
-
+\label{FlatSLB}
 Bei diesem Verfahren wird nur ein Netzwerk benötigt. Die Server und der Load Balancer müssen über einen Switch miteinander verbunden sein. Sendet der Client eine Anfrage (an den Load Balancer), wird der entsprechende Ethernet-Frame so manipuliert, dass es eine direkte Anfrage des Clients an den Server darstellt.
 
 \subsubsection{Aufbau und Funktionsweise}
@@ -101,7 +101,7 @@ Der Vorteil bei Flat based SLB ist die Entlastung des Load Balancers, da der mei
 
 \newpage
 \subsection{NAT based SLB}\cite{SLBbook}
-
+\label{NATSLB}
 NAT basierte SLB-Netzwerkarchitekturen sind definitionsgemäß, jene Verfahren bei denen sich die IPs der \textbf{virtuellen IPs} und der \textbf{realen Server} in verschiedenen Subnets befinden. Diese Vorgänge heißen NAT, weil der Load Balancer NAT-Pakete zwischen zwei Subnets, wie eine \textbf{Firewall} oder ein \textbf{Router}, transferiert.
 
 \subsubsection{Implementation}
@@ -115,7 +115,7 @@ Der Hauptunterschied zwischen NAT- und Flat-basierten Architekturen besteht dari
 	\end{center}
 \end{figure}
 \newline
-In dieser Konfiguration befinden sich die Server in einem separaten VLAN, welche die die VIP-Adressen (Virtuelle IP-Adressen) des Load Balancers besitzen. Die einzigen \textbf{floating IPs} befinden sich im \textit{public} Netzwerk, welche zwischen den \textbf{aktiven} und \textbf{standby} Load Balancern angelegt sind. Ein Floating-Standard-Gateway wird im \textit{public}-Bereich nicht benötigt, da die Load Balancer nicht die Rolle eines Gateways übernehmen. Das Floating-Gateway ist in das private Netzwerk integriert. Die Load Balancer bei diesem Verfahren die Rolle einer \textbf{Firewall} übernehmen, weil diese eine enge Kontrolle über den Netzwerkverkehr haben.
+In dieser Konfiguration befinden sich die Server in einem separaten VLAN, welche die die VIP-Adressen (Virtuelle IP-Adressen) des Load Balancers besitzen. Die einzigen \textbf{floating IPs} befinden sich im \textit{public} Netzwerk, welche zwischen den \textbf{aktiven} und \textbf{standby} Load Balancern angelegt sind. Ein Floating-Standard-Gateway wird im \textit{public}-Bereich nicht benötigt, da die Load Balancer nicht die Rolle eines Gateways übernehmen. Das Floating-Gateway ist in das private Netzwerk integriert. Die Load Balancer übernehmen bei diesem Verfahren die Rolle einer \textbf{Firewall}, weil diese eine enge Kontrolle über den Netzwerkverkehr haben.
 
 Außerdem gibt es noch eine andere Methode, bei der sich alle Geräte nur \textbf{ein LAN} teilen. Die Load Balancer sind hierbei für mehrere Netzwerke im selben LAN konfiguriert und übernehmen somit das NAT. In der \textbf{\hyperref[nat_slb_02]{folgenden Abbildung}} wird der Aufbau eines \textbf{route-path, one-armed} SLB dargestellt.
 \begin{figure}[!h]
@@ -128,13 +128,13 @@ Außerdem gibt es noch eine andere Methode, bei der sich alle Geräte nur \textb
 
 Die Load Balancer sind in dieser Architektur für zwei Subnetze im gleichen LAN konfiguriert, einer für die öffentlichen Schnittstellen der virtuellen IPs und der andere für das private Subnet der Server. Obwohl sich alles noch in einem LAN befindet, übernimmt der Load Balancer das NAT.
 
-Sowohl aus Sicherheitsgründen als auch aus architektonischer Sicht ist es \textbf{besser}, eine \textbf{two-armed} Architektur mit zwei seperaten LANs (oder VLANs) zu verwenden. Wenn alles in ein LAN untergbracht wird, werden Sicherheitsziele und Vorteiler einer NAT-basierten Konfiguration vernachlässigt. Das tatsächliche Bestehen einer Schranke zwischen dem öffentlichen und privaten Netzwerk, verstärkt die Gesamtsicherheit eines Netzwerks. Der Datenfluß ist mit zwei VLANs einfach zu verwalten, da es klare Abgrenzungspunkte für die beiden getrennten Netze gibt, wodurch die Fehlersuche in den meisten Fällen extrem erleichtert wird.
+Sowohl aus Sicherheitsgründen als auch aus architektonischer Sicht ist es \textbf{besser}, eine \textbf{two-armed} Architektur mit zwei seperaten LANs (oder VLANs) zu verwenden. Wenn alles in ein LAN untergbracht wird, werden Sicherheitsziele und Vorteile einer NAT-basierten Konfiguration vernachlässigt. Das tatsächliche Bestehen einer Schranke zwischen öffentlichen und privaten Netzwerk, verstärkt die Gesamtsicherheit eines Netzwerks. Der Datenfluß ist mit zwei VLANs einfach zu verwalten, da es klare Abgrenzungspunkte für die beiden getrennten Netze gibt, wodurch die Fehlersuche in den meisten Fällen extrem erleichtert wird.
 \newpage
 
 \subsubsection{Bridge-Path and Direct Server Return}
-Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell ist, st die Variante \textbf{bridge-path} keine Option für NAT-basiertes SLB. Damit NAT funktioniert muss der Load Balancer Interfaces auf zwei Netzwerken haben, aber bridge-path baut normalerweise auf nur einem Netz auf.
+Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell ist, ist die Variante \textbf{bridge-path} keine Option für NAT-basiertes SLB. Damit NAT funktioniert muss der Load Balancer Interfaces auf zwei Netzwerken haben, aber bridge-path baut normalerweise auf nur einem Netz auf.
 
-\textbf{DSR (Direct Server Return)} tritt nicht häufig, so wie bei flat-basierenden Architekturen, bei NAT-basierenden Szenarien auf, ist aber trotzdem möglich. Hiebei wird aber zusätzlich zum Load Balancer und einer Layer 2 Infrastruktur ein Layer 3 Gerät benötigt. Bei Direct Server Return werden Pakete bereits modifiziert versendet und das Layer 3 Element leitet diese einfach von einem Netzwerk zu einem anderen. Das Modifizieren benötigt zwar mehr Rechenleistung für die Server, ist aber eine Entlastung für den Load Balancer. In der \textbf{\hyperref[nat_slb_03]{folgenden Abbildung}} wird ein Beispiel einer solchen Konfiguration dargestellt.
+\textbf{DSR (Direct Server Return)} tritt nicht häufig, im Gegensatz zu flat-basierenden Architekturen, bei NAT-basierenden Szenarien auf, ist aber trotzdem möglich. Hiebei wird aber zusätzlich zum Load Balancer und einer Layer 2 Infrastruktur ein Layer 3 Gerät benötigt. Bei Direct Server Return werden Pakete bereits modifiziert versendet und das Layer 3 Element leitet diese einfach von einem Netzwerk zu einem anderen. Das Modifizieren benötigt zwar mehr Rechenleistung für die Server, ist aber eine Entlastung für den Load Balancer. In der \textbf{\hyperref[nat_slb_03]{folgenden Abbildung}} wird ein Beispiel einer solchen Konfiguration dargestellt.
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{images/slb_0703}
@@ -151,7 +151,7 @@ Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell 
 	\item \textbf{Schritt 3:}
 	\subitem Der Webserver versendet dann das Paket bereits umgeschrieben
 	\item \textbf{Schritt 4:}
-	\subitem Es muss nun noch zum \textit{public} Netzwerk weitergeleitet werden, damit es in das Internet gelangt. Das Layer 3 Element leitet somit das Paket unverändert an das öffentliche Netzwerk.
+	\subitem Es muss nun noch zum \textit{public} Netzwerk weitergeleitet werden, damit es in das Internet gelangt. Das  Layer 3 Element leitet somit das Paket unverändert an das öffentliche Netzwerk.
 \end{itemize}
 Hierbei ist die eigentliche Belastung des Load Balancers sehr gering, den die einzige Aufgabe besteht darin, die Pakete durch zu leiten ohne weiteren Aufwand.
 
@@ -163,6 +163,7 @@ Die NAT based SLB eignet sich gut für Websiten, bei denen die Mehrheit des Date
 
 
 \subsection{Anycast SLB}\cite{AS}
+\label{anySLB}
 Bei der Lastverteilung über \textbf{Anycast} wird eine ganze Gruppe von Rechnern/Servern über eine Adresse angesprochen. Es antwortet derjenige, der über die kürzeste Route erreichbar ist. Im Internet wird dieses mit \textbf{BGP (Border Gateway Protocol)} realisiert.
 
 \subsubsection{Anycast}\cite{anycast}

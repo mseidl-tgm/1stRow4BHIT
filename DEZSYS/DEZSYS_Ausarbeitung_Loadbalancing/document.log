@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.9.13)  19 OCT 2016 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.20)  19 OCT 2016 19:06
 entering extended mode
 **./document.tex
 (document.tex
 LaTeX2e <2016/03/31> patch level 3
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+(D:\MiKteX\tex\latex\base\article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+(D:\MiKteX\tex\latex\base\size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -20,32 +20,29 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-(special/preamble.tex
-("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+) (special/preamble.tex
+(D:\MiKteX\tex\latex\preprint\fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip43
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(D:\MiKteX\tex\latex\base\fontenc.sty
 Package: fontenc 2016/06/19 v1.99m Standard LaTeX package
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+ (D:\MiKteX\tex\latex\base\t1enc.def
 File: t1enc.def 2016/06/19 v1.99m Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+(D:\MiKteX\tex\latex\base\inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+ (D:\MiKteX\tex\latex\base\utf8.def
 File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+(D:\MiKteX\tex\latex\base\t1enc.dfu
 File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -281,8 +278,7 @@ File: t1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+ (D:\MiKteX\tex\latex\base\ot1enc.dfu
 File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -323,7 +319,7 @@ File: ot1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+(D:\MiKteX\tex\latex\base\omsenc.dfu
 File: omsenc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -346,24 +342,23 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-))
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+)) (D:\MiKteX\tex\generic\babel\babel.sty
 Package: babel 2016/04/23 3.9r The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+(D:\MiKteX\tex\latex\arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf"
+(D:\MiKteX\tex\latex\babel-german\ngerman.ldf
 Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngermanb.ldf"
+(D:\MiKteX\tex\latex\babel-german\ngermanb.ldf
 Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+(D:\MiKteX\tex\generic\babel\babel.def
 File: babel.def 2016/04/23 3.9r Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
@@ -372,31 +367,31 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 \l@nswissgerman = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 88.
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(D:\MiKteX\tex\latex\graphics\graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(D:\MiKteX\tex\latex\graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(D:\MiKteX\tex\latex\graphics\graphics.sty
 Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(D:\MiKteX\tex\latex\graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+(D:\MiKteX\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+(D:\MiKteX\tex\latex\graphics-def\pdftex.def
 File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(D:\MiKteX\tex\generic\oberdiek\infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(D:\MiKteX\tex\generic\oberdiek\ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -404,13 +399,13 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty"
+(D:\MiKteX\tex\latex\wasysym\wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
 \symwasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+(D:\MiKteX\tex\latex\base\textcomp.sty
 Package: textcomp 2016/06/19 v1.99m Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -424,13 +419,12 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+ (D:\MiKteX\tex\latex\base\ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.dfu"
+(D:\MiKteX\tex\latex\base\ts1enc.dfu
 File: ts1enc.dfu 2016/02/28 v1.1s UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
@@ -566,14 +560,14 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty"
+(D:\MiKteX\tex\latex\sectsty\sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(D:\MiKteX\tex\latex\caption\caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(D:\MiKteX\tex\latex\caption\caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen106
@@ -586,7 +580,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 )
 \c@ContinuedFloat=\count89
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(D:\MiKteX\tex\latex\listings\listings.sty
 \lst@mode=\count90
 \lst@gtempboxa=\box26
 \lst@token=\toks17
@@ -600,18 +594,18 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \lst@lineno=\count95
 \lst@maxwidth=\dimen116
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(D:\MiKteX\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count96
 \lst@skipnumbers=\count97
 \lst@framebox=\box27
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(D:\MiKteX\tex\latex\listings\listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(D:\MiKteX\tex\latex\tools\array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen117
 \extrarowheight=\dimen118
@@ -619,21 +613,19 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip44
 \backup@length=\skip45
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+(D:\MiKteX\tex\latex\colortbl\colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+(D:\MiKteX\tex\latex\graphics\color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+ (D:\MiKteX\tex\latex\00miktex\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
 \everycr=\toks19
 \minrowclearance=\skip46
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty"
+) (D:\MiKteX\tex\latex\footmisc\footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks20
 \footnotemargin=\dimen119
@@ -647,7 +639,7 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(D:\MiKteX\tex\latex\fancyhdr\fancyhdr.sty
 Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \fancy@headwidth=\skip47
 \f@ncyO@elh=\skip48
@@ -659,27 +651,27 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@olf=\skip54
 \f@ncyO@orf=\skip55
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\ccicons\ccicons.sty"
+(D:\MiKteX\tex\latex\ccicons\ccicons.sty
 Package: ccicons 2013/04/16 v1.5 LaTeX support for Creative Commons icons
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+(D:\MiKteX\tex\latex\xkeyval\xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+(D:\MiKteX\tex\generic\xkeyval\xkeyval.tex
+(D:\MiKteX\tex\generic\xkeyval\xkvutils.tex
 \XKV@toks=\toks21
 \XKV@tempa@toks=\toks22
 )
 \XKV@depth=\count99
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\bigfoot\suffix.sty"
+(D:\MiKteX\tex\latex\bigfoot\suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(D:\MiKteX\tex\latex\multirow\multirow.sty
 \bigstrutjot=\dimen120
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+(D:\MiKteX\tex\latex\tools\tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@col@width=\dimen121
 \TX@old@table=\dimen122
@@ -689,21 +681,21 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@cols=\count100
 \TX@ftn=\toks23
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\accsupp.sty"
+(D:\MiKteX\tex\latex\oberdiek\accsupp.sty
 Package: accsupp 2016/05/16 v0.4 Accessibility support by marked content (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdfescape.sty"
+(D:\MiKteX\tex\generic\oberdiek\pdfescape.sty
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+(D:\MiKteX\tex\generic\oberdiek\pdftexcmds.sty
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(D:\MiKteX\tex\generic\oberdiek\ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(D:\MiKteX\tex\generic\oberdiek\ifpdf.sty
 Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -711,33 +703,32 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(D:\MiKteX\tex\generic\ifxetex\ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(D:\MiKteX\tex\latex\oberdiek\kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+(D:\MiKteX\tex\generic\oberdiek\kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+(D:\MiKteX\tex\generic\oberdiek\etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\accsupp-pdftex.def"
+(D:\MiKteX\tex\latex\oberdiek\accsupp-pdftex.def
 File: accsupp-pdftex.def 2016/05/16 v0.4 accsupp driver for pdfTeX (HO)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+(D:\MiKteX\tex\latex\url\url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+) (D:\MiKteX\tex\latex\xcolor\xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+(D:\MiKteX\tex\latex\00miktex\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -752,20 +743,20 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+(D:\MiKteX\tex\latex\graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(D:\MiKteX\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip56
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count101
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+(D:\MiKteX\tex\latex\geometry\geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(D:\MiKteX\tex\generic\oberdiek\ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
@@ -782,12 +773,12 @@ Package ifvtex Info: VTeX not detected.
 \Gm@layoutvoffset=\dimen133
 \Gm@dimlist=\toks24
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\acronym\acronym.sty"
+(D:\MiKteX\tex\latex\geometry\geometry.cfg))
+(D:\MiKteX\tex\latex\acronym\acronym.sty
 Package: acronym 2015/03/21 v1.41 Support for acronyms (Tobias Oetiker)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
+(D:\MiKteX\tex\latex\xstring\xstring.sty
+(D:\MiKteX\tex\generic\xstring\xstring.tex
 \@xs@message=\write3
 \integerpart=\count105
 \decimalpart=\count106
@@ -796,14 +787,14 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 \AC@clearlist=\toks25
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+(D:\MiKteX\tex\latex\hyperref\hyperref.sty
 Package: hyperref 2016/06/24 v6.83q Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+(D:\MiKteX\tex\generic\oberdiek\hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+(D:\MiKteX\tex\generic\oberdiek\hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -832,21 +823,21 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+(D:\MiKteX\tex\latex\oberdiek\auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen134
 \Hy@linkcounter=\count107
 \Hy@pagecounter=\count108
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+(D:\MiKteX\tex\latex\hyperref\pd1enc.def
 File: pd1enc.def 2016/06/24 v6.83q Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count109
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(D:\MiKteX\tex\latex\00miktex\hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 4362.
@@ -879,19 +870,18 @@ LaTeX Info: Redefining \pageref on input line 6416.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+(D:\MiKteX\tex\latex\hyperref\hpdftex.def
 File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
 \Fld@listcount=\count115
 \c@bookmark@seq@number=\count116
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+(D:\MiKteX\tex\latex\oberdiek\rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip58
-)
-(document.aux)
+) (document.aux)
 \openout1 = `document.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -908,14 +898,14 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+
+(D:\MiKteX\tex\latex\base\ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ (D:\MiKteX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen138
@@ -928,10 +918,10 @@ LaTeX Font Info:    ... okay on input line 49.
 \MPnumerator=\count121
 \makeMPintoPDFobject=\count122
 \everyMPtoPDFconversion=\toks27
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (D:\MiKteX\tex\latex\oberdiek\epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(D:\MiKteX\tex\latex\oberdiek\grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -983,10 +973,10 @@ Package caption Info: End \AtBeginDocument code.
 
 \AtBeginShipoutBox=\box29
 Package hyperref Info: Link coloring ON on input line 49.
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+(D:\MiKteX\tex\latex\hyperref\nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(D:\MiKteX\tex\generic\oberdiek\gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count124
@@ -994,8 +984,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 49.
 LaTeX Info: Redefining \pageref on input line 49.
 LaTeX Info: Redefining \nameref on input line 49.
-
-(document.out) (document.out)
+ (document.out)
+(document.out)
 \@outlinefile=\write4
 \openout4 = `document.out'.
 
@@ -1006,8 +996,7 @@ File: images/jdIT_tgm.png Graphic file (type png)
 <use images/jdIT_tgm.png>
 Package pdftex.def Info: images/jdIT_tgm.png used on input line 7.
 (pdftex.def)             Requested size: 150.14671pt x 128.40846pt.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd")
+ (D:\MiKteX\tex\latex\wasysym\uwasy.fd)
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1018,7 +1007,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 36.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/jdIT_tgm.png>]) 
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/jdIT_tgm.png>])
 (document.toc)
 \tf@toc=\write5
 \openout5 = `document.toc'.
@@ -1090,7 +1079,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 34.
- <images/RR-DNS.png, id=139, 530.4618pt x 387.3672pt>
+ <images/RR-DNS.png, id=143, 530.4618pt x 387.3672pt>
 File: images/RR-DNS.png Graphic file (type png)
 
 <use images/RR-DNS.png>
@@ -1131,7 +1120,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 86.
 
-<images/flat_slb.png, id=163, 453.19313pt x 347.79938pt>
+<images/flat_slb.png, id=167, 453.19313pt x 347.79938pt>
 File: images/flat_slb.png Graphic file (type png)
 
 <use images/flat_slb.png>
@@ -1159,27 +1148,28 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 107.
 
-<images/slb_0701.png, id=171, 456.70625pt x 514.92375pt>
+<images/slb_0701.png, id=175, 456.70625pt x 514.92375pt>
 File: images/slb_0701.png Graphic file (type png)
 
 <use images/slb_0701.png>
 Package pdftex.def Info: images/slb_0701.png used on input line 112.
 (pdftex.def)             Requested size: 250.24199pt x 282.14037pt.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 120.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 120.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 120.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 120.
- [5 <./images/slb_0701.png>]
-<images/slb_0702.png, id=180, 437.635pt x 467.7475pt>
+
+<images/slb_0702.png, id=177, 437.635pt x 467.7475pt>
 File: images/slb_0702.png Graphic file (type png)
 
 <use images/slb_0702.png>
 Package pdftex.def Info: images/slb_0702.png used on input line 123.
 (pdftex.def)             Requested size: 250.24199pt x 267.46103pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 128.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 128.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 128.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 128.
+ [5 <./images/slb_0701.png>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 132.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1193,8 +1183,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 134.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 134.
-
-<images/slb_0703.png, id=187, 456.70625pt x 404.51125pt>
+ <images/slb_0703.png, id=191, 456.70625pt x 404.51125pt>
 File: images/slb_0703.png Graphic file (type png)
 
 <use images/slb_0703.png>
@@ -1227,33 +1216,33 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 165.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 169.
 
-<images/anycast_slb.png, id=199, 411.5375pt x 398.48875pt>
+<images/anycast_slb.png, id=203, 411.5375pt x 398.48875pt>
 File: images/anycast_slb.png Graphic file (type png)
 
 <use images/anycast_slb.png>
-Package pdftex.def Info: images/anycast_slb.png used on input line 175.
+Package pdftex.def Info: images/anycast_slb.png used on input line 176.
 (pdftex.def)             Requested size: 250.24199pt x 242.30556pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 180.
+(babel)             in language  on input line 181.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 183.
  [9 <./images/anycast_slb.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 184.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 184.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
@@ -1263,7 +1252,11 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 68.
- [10] (document.bbl) (document.lol)
+ [10] (document.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
+(D:\MiKteX\tex\latex\base\t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)) (document.lol)
 \tf@lol=\write6
 \openout6 = `document.lol'.
 
@@ -1284,7 +1277,8 @@ Package babel Info: Redefining ngerman shorthand "~
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
- (document.aux)
+
+(document.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
 Package rerunfilecheck Info: File `document.out' has not changed.
@@ -1292,28 +1286,28 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
  ) 
 Here is how much of TeX's memory you used:
- 12070 strings out of 493334
- 172405 string characters out of 3139217
- 295828 words of memory out of 3000000
- 15310 multiletter control sequences out of 15000+200000
- 14234 words of font info for 37 fonts, out of 3000000 for 9000
+ 12097 strings out of 493334
+ 169488 string characters out of 3146995
+ 296001 words of memory out of 3000000
+ 15333 multiletter control sequences out of 15000+200000
+ 14547 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,78p,858b,1141s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Maximilian Seidl\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecrm0800.pk> <C:\Users\Maximilian Seidl\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\Maximilian Seidl\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Max
-imilian Seidl\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1
-200.pk> <C:\Users\Maximilian Seidl\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
-appen\ec\dpi600\ecrm1200.pk> <C:\Users\Maximilian Seidl\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Maximilian Seidl\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\User
-s\Maximilian Seidl\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecbx2488.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ccicons/ccicons.pfb
->
-Output written on document.pdf (13 pages, 463227 bytes).
+ 41i,11n,78p,858b,1141s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\seidlmeister\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\
+dpi600\ectt1200.pk> <C:\Users\seidlmeister\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+four\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\seidlmeister\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\seidlmeister\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\User
+s\seidlmeister\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm
+1200.pk> <C:\Users\seidlmeister\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknapp
+en\ec\dpi600\ecrm1200.pk> <C:\Users\seidlmeister\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\seidlmeister\AppData\Local
+\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\seidlmeis
+ter\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk><D:
+/MiKteX/fonts/type1/public/ccicons/ccicons.pfb>
+Output written on document.pdf (13 pages, 483856 bytes).
 PDF statistics:
- 563 PDF objects out of 1000 (max. 8388607)
+ 634 PDF objects out of 1000 (max. 8388607)
  57 named destinations out of 1000 (max. 500000)
  180 words of extra memory for PDF output out of 10000 (max. 10000000)
 

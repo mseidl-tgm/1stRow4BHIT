@@ -1,9 +1,25 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Repeated entry---line 66 of file references.bib
- : @article{SRVResourceRecord
- :                           ,
+I was expecting a `,' or a `}'---line 53 of file references.bib
+ : 
+ : @article{RoundRobinDNS,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 62 of file references.bib
+ : 
+ : @article{SRVResourceRecord,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 72 of file references.bib
+ : 
+ : @article{BGP,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 81 of file references.bib
+ : 
+ : @article{anycast,
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--empty author in Lastverteilung
 Warning--empty journal in Lastverteilung
@@ -18,4 +34,4 @@ Warning--empty author in anycast
 Warning--empty journal in anycast
 Warning--empty author in BGP
 Warning--empty journal in BGP
-(There was 1 error message)
+(There were 4 error messages)

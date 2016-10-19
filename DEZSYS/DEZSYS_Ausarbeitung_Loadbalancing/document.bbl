@@ -3,35 +3,44 @@
 \bibitem{Lastverteilung}
 Lastverteilung (informatik), definition und aufbau.
 \newblock 2016.
+\newblock \url{https://de.wikipedia.org/wiki/Lastverteilung_(Informatik)}.
 
 \bibitem{LastverteilungPerDNS}
 Lastverteilung per dns, beschreibung der funktion und umsetzung.
 \newblock 2016.
+\newblock \url{{https://de.wikipedia.org/wiki/Lastverteilung_per_DNS}},.
 
 \bibitem{RoundRobinDNS}
 Thomas Sanchez.
 \newblock Round robin dns.
 \newblock 2015.
+\newblock \url{{http://www.webopedia.com/TERM/R/Round_Robin_DNS.htm}},.
 
 \bibitem{SRVResourceRecord}
 Definition und funktionsweise von srv.
 \newblock 2016.
+\newblock \url{{https://de.wikipedia.org/wiki/SRV_Resource_Record}},.
 
 \bibitem{SLBbook}
 Tony Bourke.
 \newblock {\em Server Load Balancing}.
 \newblock O´REILLY, 2001.
+\newblock
+  \url{https://web.archive.org/web/20040721090101/http://www.oreilly.com/catalog/serverload/chapter/ch07.html}.
 
 \bibitem{AS}
 Autonome systeme, mit definition und beschreibung.
 \newblock 2016.
+\newblock \url{https://de.wikipedia.org/wiki/Autonomes_System}.
 
 \bibitem{anycast}
 Anycast, adressierungsmethode mit beschreibung.
 \newblock 2016.
+\newblock \url{https://de.wikipedia.org/wiki/Anycast}.
 
 \bibitem{BGP}
 Border gateway protokoll, definition aufbau und beschreibung.
 \newblock 2016.
+\newblock \url{{https://de.wikipedia.org/wiki/Border_Gateway_Protocol}},.
 
 \end{thebibliography}
