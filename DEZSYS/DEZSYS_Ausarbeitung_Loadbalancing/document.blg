@@ -1,3 +1,21 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
 The style file: unsrt.bst
 Database file #1: references.bib
+Repeated entry---line 66 of file references.bib
+ : @article{SRVResourceRecord
+ :                           ,
+I'm skipping whatever remains of this entry
+Warning--empty author in Lastverteilung
+Warning--empty journal in Lastverteilung
+Warning--empty author in LastverteilungPerDNS
+Warning--empty journal in LastverteilungPerDNS
+Warning--empty journal in RoundRobinDNS
+Warning--empty author in SRVResourceRecord
+Warning--empty journal in SRVResourceRecord
+Warning--empty author in AS
+Warning--empty journal in AS
+Warning--empty author in anycast
+Warning--empty journal in anycast
+Warning--empty author in BGP
+Warning--empty journal in BGP
+(There was 1 error message)

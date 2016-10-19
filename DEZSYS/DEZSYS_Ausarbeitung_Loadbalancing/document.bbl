@@ -1,8 +1,37 @@
 \begin{thebibliography}{1}
 
-\bibitem{tanenbaum2007verteilte}
-A.S. Tanenbaum and M.~Van~Steen.
-\newblock {\em Verteilte Systeme: Prinzipien und Paradigmen}.
-\newblock Pearson Studium. Addison Wesley Verlag, 2007.
+\bibitem{Lastverteilung}
+Lastverteilung (informatik), definition und aufbau.
+\newblock 2016.
+
+\bibitem{LastverteilungPerDNS}
+Lastverteilung per dns, beschreibung der funktion und umsetzung.
+\newblock 2016.
+
+\bibitem{RoundRobinDNS}
+Thomas Sanchez.
+\newblock Round robin dns.
+\newblock 2015.
+
+\bibitem{SRVResourceRecord}
+Definition und funktionsweise von srv.
+\newblock 2016.
+
+\bibitem{SLBbook}
+Tony Bourke.
+\newblock {\em Server Load Balancing}.
+\newblock O´REILLY, 2001.
+
+\bibitem{AS}
+Autonome systeme, mit definition und beschreibung.
+\newblock 2016.
+
+\bibitem{anycast}
+Anycast, adressierungsmethode mit beschreibung.
+\newblock 2016.
+
+\bibitem{BGP}
+Border gateway protokoll, definition aufbau und beschreibung.
+\newblock 2016.
 
 \end{thebibliography}
