@@ -1,0 +1,20 @@
+\frametitle{Zugriffsmodifikatoren}
+	Welche Fehler findet ihr?
+	\footnotesize
+	\begin{lstlisting}
+int main() {
+	// 1)
+	Produkt p{ 1 };
+	cout << p.getGroesse() << endl;
+
+	// 2)
+	Kleidungsstueck k1{ 1,2 };
+	cout << k1.getPreis() << endl;
+
+	// 3)
+	Kleidungsstueck k2{ 1 };
+	cout << k2.getGroesse() << endl;
+
+	return EXIT_SUCCESS;
+}
+	\end{lstlisting}

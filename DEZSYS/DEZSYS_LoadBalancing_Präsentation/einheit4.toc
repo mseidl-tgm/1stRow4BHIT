@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {german}
+\beamer@sectionintoc {2}{Wiederholung}{3}{0}{1}
+\beamer@sectionintoc {3}{Vererbung}{8}{0}{2}
+\beamer@sectionintoc {4}{Virtuelle Methoden}{13}{0}{3}
+\beamer@sectionintoc {5}{\IeC {\"U}bung}{23}{0}{4}

@@ -1,0 +1,526 @@
+\documentclass[]{beamer}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{textpos}
+\usepackage{listings}
+ \usepackage{pgf}
+\usepackage[all]{xy}
+\setlength{\TPHorizModule}{1cm} % Horizontale Einheit
+\setlength{\TPVertModule}{1cm} % Vertikale Einheit
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue
+}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.64,0.08,0.08}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{ppurple}{rgb}{0.584,0,0.33}
+\definecolor{pmagenta}{rgb}{0.573,0.075,0.537}
+\definecolor{pteal}{rgb}{0.169,0.569,0.686}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+% Class options include: notes, notesonly, handout, trans,
+%                        hidesubsections, shadesubsections,
+%                        inrow, blue, red, grey, brown
+
+% Theme for beamer presentation.
+\usepackage{beamerthemesplit} 
+\newcommand{\cmode}{\lstset{language=C++,
+		morekeywords={constexpr,thread_local},
+	keywords=[2]{<<,>>,Farbe,Frucht,Figur,Quadrat,ofstream,ifstream,Shape,Circle,unique_ptr,vector,Kind,istream,string},
+	keywordstyle=[2]\color{pteal}\ttfamily,
+	keywords=[3]{EXIT_SUCCESS,EXIT_FAILURE},
+	keywordstyle=[3]\color{pmagenta}\ttfamily,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{pblue}\ttfamily,
+	stringstyle=\color{pred}\ttfamily,
+	commentstyle=\color{pgreen}\ttfamily,
+	morecomment=[l][\color{pgrey}]{\#},
+	showspaces=false,
+	showtabs=false,
+	showlines=true,
+	breaklines=true,
+	showstringspaces=false,
+	breakatwhitespace=true,
+	tabsize=2}}
+\newcommand{\jmode}{\lstset{language=Java,
+		showspaces=false,
+		showtabs=false,
+		breaklines=true,
+		showlines=true,
+		showstringspaces=false,
+		breakatwhitespace=true,
+		commentstyle=\color{pgreen},
+		keywordstyle=\color{ppurple},
+		stringstyle=\color{pred},
+		basicstyle=\ttfamily,
+%		moredelim=[il][\textcolor{pgrey}]{$$},
+		moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+		tabsize=2}}
+\setbeamertemplate{footline}[frame number]
+% Other themes include: beamerthemebars, beamerthemelined, 
+%                       beamerthemetree, beamerthemetreebars  
+
+\title{Softwareentwicklung 4} % Enter your title between curly braces
+\subtitle{4. Einheit}
+\author{Dominik Dolezal,\newline Michael Borko,\newline Erhard List,\newline Hans Brabenetz}                 % Enter your name between curly braces
+\institute{Höhere Lehranstalt für Informationstechnologie}      % Enter your institute name between curly braces
+\date{\today}                    % Enter the date or \today between curly braces
+
+\setbeamertemplate{frametitle} 
+{% 
+	\vspace{-0.165ex} 
+	
+	\begin{beamercolorbox}[wd=\paperwidth,dp=1ex, ht=4.5ex, sep=0.5ex, colsep*=0pt]{frametitle}% 
+		\usebeamerfont{frametitle}   \strut \insertframetitle  \hfill \raisebox{-6ex}[0pt][-\ht\strutbox ]{ \includegraphics[height=0.8cm]{tgm_logo.png}} 
+	\end{beamercolorbox}% 
+}%
+
+\begin{document}
+
+\cmode
+% Creates title page of slide show using above information
+\begin{frame}
+  \titlepage
+\end{frame}
+\note{Talk for 30 minutes} % Add notes to yourself that will be displayed when
+                           % typeset with the notes or notesonly class options
+
+\section[Inhalt]{}
+
+% Creates table of contents slide incorporating
+% all \section and \subsection commands
+\begin{frame}
+	\frametitle{Inhalt}
+  \tableofcontents
+\end{frame}
+
+\section{Wiederholung}
+
+\begin{frame}[fragile]
+	\frametitle{Wiederholung}
+	Wir hatten:
+	\bi
+	\item Dynamische Speicherverwaltung für Arrays
+		\small
+		\begin{lstlisting}
+int* dyn_array = new int[dyn_size];
+for (int i = 0; i < dyn_size ; i++)
+	dyn_array[i] = 2 * i;
+delete[] dyn_array ;
+		\end{lstlisting}\normalsize
+	\item Dynamische Speicherverwaltung für Klassen in Klassenhierarchien
+	\small
+	\begin{lstlisting}
+Figur * f1 = new Quadrat (10 , 3, 3);
+f1->draw();
+delete f1;
+	\end{lstlisting}\normalsize
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Wiederholung}
+	Wir hatten:
+	\bi
+	\item Strings
+	\small
+	\begin{lstlisting}
+cout << "Was lernst du?" << endl;
+string antwort;
+cin >> antwort;
+if (antwort == "C++")
+	cout << "Ich auch!";
+
+string fach = "Softwareentwicklung";
+string ware = fach.substr(4, 4);
+fach.replace(0, 8, "hardware");
+fach[0] = toupper(fach[0]);
+	\end{lstlisting}
+	\normalsize
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Wiederholung}
+Wir hatten: Dateien
+	\bi
+	\item Wir kennen schon zwei verschiedene Streams: \lstinline|cout| als Ausgabe und \lstinline|cin| als Eingabe
+	\item Streams schreiben oder lesen Sequenzen von Werten (Zeichen)
+	\item Ein solcher Stream muss nicht unbedingt an der Konsole "`angeschlossen"' sein -- dasselbe Konzept kann auch für Dateien verwendet werden
+\small
+	\begin{lstlisting}
+#include <fstream>
+// ...
+ofstream writefile{ "hallowelt.txt" };
+if (writefile) {
+	writefile << "Hallo Welt!" << endl;
+}
+writefile.close();
+	\end{lstlisting}
+\normalsize
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Wiederholung}
+	\bi
+	\item Der Status der letzten Operation eines Streams (Öffnen, Lesen) kann praktischerweise als \lstinline|bool| abgefragt werden
+	\begin{lstlisting}
+ofstream writefile{ "hallowelt.txt" };
+int zahl;
+while(cin >> zahl)
+	writefile << zahl << endl;
+writefile.close();
+	\end{lstlisting}
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Wiederholung}
+	\bi
+	\item Das Einlesen einer Datei funktioniert analog
+	\begin{lstlisting}
+ifstream readfile{ "hallowelt.txt" };
+if (readfile) {
+	string line;
+	while (getline(readfile, line))
+	{
+		cout << line << '\n';
+	}
+}
+readfile.close();
+	\end{lstlisting}
+	\item \lstinline|getline()| wird verwendet, da der \lstinline|>>|-Operator\newline Whitespaces ignoriert
+	\ei
+\end{frame}
+
+\section{Vererbung}
+
+\begin{frame}[fragile]
+	\frametitle{Vererbung}
+	\bi
+	\item Wie in Java wird Vererbung verwendet, um bestehende Klassen zu erweitern, ohne sie ändern zu müssen
+	\bi
+	\item Wenn wir beispielsweise unserer Vektor-Klasse ein Attribut für die dritte Dimension hinzufügen wollen, erben wir davon:
+	\begin{lstlisting}
+class Vektor3D : public Vektor
+{
+public:
+	Vektor3D(double, double, double);
+	virtual ~Vektor3D();
+	double getZ() const { return z; }
+protected:
+	double z;
+};
+	\end{lstlisting}
+	\ei
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Vererbung}
+	\bi
+	\item Vererbung ermöglicht außerdem \emph{Polymorphie}, d.h. \newline unterschiedliches Verhalten bei gleichem Interface
+	\bi
+	\item Beispielsweise erben \lstinline|cin| und \lstinline|ifstream| beide von der Klasse \lstinline|basic_ifstream|
+	\item \lstinline|getline()| akzeptiert beliebige Referenzen vom Typen \lstinline|basic_ifstream| und man kann somit mit derselben Funktion sowohl Files als auch Benutzereingaben lesen
+	\item Für neue Eingabemöglichkeit (z.B. Netzwerkeingabe) muss man nur von \lstinline|basic_ifstream| erben und die jeweiligen Funktionen implementieren -- \lstinline|getline()| wird nicht geändert
+	\begin{lstlisting}
+string line;
+if(getline(cin, line))
+	//...
+ifstream readfile{ "hallowelt.txt" };
+if(getline(readfile, line))
+	//...
+	\end{lstlisting}
+	\ei
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Vererbung}
+	Achtung:
+	\bi
+	\item Polymorphes Verhalten benötigt Pointer oder Referenzen
+	\begin{lstlisting}
+Figur* f1 = new Quadrat (10 , 3, 3);
+f1->draw();
+delete f1;
+
+Figur& f = Quadrat(10, 3, 3);
+f.draw();
+	\end{lstlisting}
+	\ei
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pointer vs. Referenzen}
+	
+	\begin{tabular}{l|l}
+		\textbf{Pointer} & \textbf{Referenzen}\\\hline
+		\small\lstinline|Figur* f1=new Quadrat(1,3,3);| & \lstinline|Figur\& f=Quadrat(1,3,3);|\\
+		\lstinline|f1->draw();| & \lstinline|f.draw();|\\
+		\lstinline|delete f1;| \\\hline
+		\lstinline|->| Operator & \lstinline|.| Operator \\\hline
+		Oft in Verbindung mit \lstinline|new|, & \lstinline|delete| sehr unüblich \\
+		erfordert manchmal ein \lstinline|delete| &  \\\hline
+		Kann \lstinline|nullptr| darstellen & Ist immer gültig \\\hline
+		Für Pointer-Arithmetik& Für Output-Parameter  \\
+		sinnvollere Wahl & sinnvollere Wahl\\
+		(z.B. Arrays) \\\hline
+		Pointervariable änderbar & Konstant
+	\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Pointer vs. Referenzen}
+	\bi
+	\item Objektvariablen in Java sind Referenzen in C++\newline sehr ähnlich (aber nicht ident)
+	\item Referenzen wurden in C++ als "`sicherere"' Alternative zu Pointern aus C eingeführt
+	\item Funktionsparameter können per Referenz übergeben werden
+	\begin{lstlisting}
+void inc(int& x) { x++; }
+
+int main() {
+	int zahl = 0;
+	inc(zahl);
+	cout << zahl; // "1"
+	return EXIT_SUCCESS; }
+	\end{lstlisting}
+	\item Ausführliches Tutorial  \href{https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.html}{hier abrufbar}
+	\ei
+\end{frame}
+
+\section{Virtuelle Methoden}
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	Achtung:
+	\bi
+	\item Methoden müssen in der Superklasse mit \lstinline|virtual| gekennzeichnet werden, damit sie in der Subklasse überschrieben werden können
+	\item Sonst wird die Funktion lediglich "`versteckt"' (hide)
+	\ei
+	\begin{tabular}{c|c}
+		\footnotesize 
+		\begin{lstlisting}
+class Figur
+{
+public:
+	virtual void
+	printpolytype() const
+		{ cout << "Figur";};
+	void printtype() const
+		{ cout << "Figur";};
+};
+		\end{lstlisting}
+		&
+		\footnotesize
+		\begin{lstlisting}
+class Quadrat : public Figur
+{
+public:
+	virtual void
+	printpolytype() const
+		{ cout << "Quadrat"; };
+	void printtype() const
+		{ cout << "Quadrat"; };
+};
+		\end{lstlisting}
+		\normalsize
+	\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	\begin{lstlisting}
+Figur f{};
+Quadrat q{};
+f.printtype(); // "Figur"
+f.printpolytype(); // "Figur"
+q.printtype(); // "Quadrat"
+q.printpolytype(); // "Quadrat"
+Figur& qf = q;
+qf.printtype(); // <- "Figur" (!!!)
+qf.printpolytype(); // "Quadrat"
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	\bi
+	\item Durch das Wort \lstinline|virtual| weiß der Compiler, dass er in Subklassen nach einer überschriebenen Methode suchen muss
+	\item Intern werden sog. \emph{Virtual Function Tables} verwendet, um Methodenaufrufe von virtuellen Funktionen zur Laufzeit aufzulösen
+	\item Dieser Mechanismus ist performant implementiert und benötigt weniger als 25\% Overhead
+	\item Auch Java verwendet solche Virtual Function Tables!
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	\bi
+	\item Konstruktoren und Destruktoren haben eine spezielle Rolle
+	\item Konstruktoren können nicht virtuell sein, da beim Instanziieren ja immer der konkrete Subtyp verwendet wird
+	% Beim instanziieren braucht man ja immer den konkreten Typen der Klasse -> kann nicht virtuell (zur Laufzeit) sein
+	\item Destruktoren sollten immer virtuell sein, da bei einem \lstinline|delete|-Aufruf auf eine Variable vom Typen der Basisklasse ggf. auch in den Subklassen aufgeräumt werden muss
+	% Wenn ein Objekt durch Pointer auf Basisklasse deleted wird, muss ja vlt durch Subklassen etwas aufgeräumt werden!
+	\item Objekte werden bottom-up erstellt\newline(Basisklasse $\rightarrow$ Member-Attribute $\rightarrow$ Subklasse)
+	\item Objekte werden top-down zerstört\newline(Subklasse $\rightarrow$ Member-Attribute $\rightarrow$ Basisklasse)
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	Was gibt das Programm aus?
+\footnotesize
+	\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+	Person() { cout << "Konstruktor Person" << endl; }
+	~Person() { cout << "Destruktor Person" << endl; }
+};
+class Mitarbeiter : public Person {
+public:
+	Mitarbeiter() { cout << "Konstruktor Mitarbeiter" << endl; }
+	~Mitarbeiter() { cout << "Destruktor Mitarbeiter" << endl; }
+};
+	\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Virtuelle Methoden}
+	Was gibt das Programm aus?
+	\footnotesize
+	\begin{lstlisting}
+class Firma {
+private:
+	Mitarbeiter ceo;
+public:
+	Firma() { cout << "Konstruktor Firma" << endl; }
+	~Firma() { cout << "Destruktor Firma" << endl; }
+};
+	
+int main() {
+	Firma f;
+	cout << "Tschuess!" << endl;
+	return EXIT_SUCCESS;
+}
+	\end{lstlisting}
+\end{frame}
+
+% Was sind Member?
+
+\begin{frame}[fragile]
+	\frametitle{Zugriffsmodifikatoren}
+	\bi
+	\item Eine Klasse besteht aus Members -- das sind Daten \newline(Attibute) und Funktionen (Methoden)
+	\item Member können \lstinline|private|, \lstinline|protected| und \lstinline|public| sein
+	\item \lstinline|private| (default): Der Member kann nur innerhalb von Funktionen derselben Klasse verwendet werden (und friends)
+	\item \lstinline|protected|: Der Member ist zusätzlich in Funktionen von Subklassen verwendbar (und dessen friends)
+	\item \lstinline|public|: Alle Funktionen haben Zugriff auf den Member
+	\item Subklassen (abgeleitete Klassen) erben nun alle Member der Superklasse (Basisklasse) und können -- sofern sie Zugriff haben -- darauf zugreifen, als wären sie in der Subklasse selbst definiert
+	\ei
+\end{frame}
+
+\begin{frame}
+	\frametitle{Zugriffsmodifikatoren}
+	\bi
+	\item Der Zugriff auf Superklassen wird ebenfalls gesteuert\newline
+	\lstinline|class B : public A|
+	\item \lstinline|private| (default): Alle \lstinline|public| und \lstinline|protected| Member von A können nur innerhalb von Funktionen von B verwendet werden (und friends) und auch nur dort kann ein \lstinline|B*| zu ein \lstinline|A*| gecastet werden (und in friends).
+	\item \lstinline|protected|: Zusätzlich sind die \lstinline|public| und \lstinline|protected| Member von A auch in Subklassen von B verfügbar (und friends) und auch dort kann ein \lstinline|B*| zu ein \lstinline|A*| gecastet werden (und in friends).
+	\item \lstinline|public|: Alle Funktionen haben Zugriff auf \lstinline|public| Member von B und alle Funktionen können \lstinline|B*| auf \lstinline|A*| casten.
+	\ei
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Zugriffsmodifikatoren}
+	Gegeben sind folgende Klassen:
+	\scriptsize
+	\begin{lstlisting}
+class Produkt {
+public:
+	Produkt(double preis) :preis{ preis } {}
+	double getPreis() { return preis; }
+private:
+	double preis;
+};
+class Kleidungsstueck : public Produkt {
+public:
+	Kleidungsstueck(double preis, double groesse) : Produkt{ preis }, groesse{ groesse } {}
+	double getGroesse() { return groesse; }
+private:
+	double groesse;
+};
+\end{lstlisting}\normalsize
+Ich brauche eine/n Freiwillige/n!
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Zugriffsmodifikatoren}
+	Welche Fehler findet ihr?
+	\footnotesize
+	\begin{lstlisting}
+int main() {
+	// 1)
+	Produkt p{ 1 };
+	cout << p.getGroesse() << endl;
+
+	// 2)
+	Kleidungsstueck k1{ 1,2 };
+	cout << k1.getPreis() << endl;
+	
+	// 3)
+	Kleidungsstueck k2{ 1 };
+	cout << k2.getGroesse() << endl;
+	
+	return EXIT_SUCCESS;
+}
+	\end{lstlisting}
+\end{frame}
+
+\section{Übung}
+
+\begin{frame}
+	\frametitle{Übung}
+	Eure Projektmanagerin braucht ein Programm, welches Kundendaten zeilenweise aus einer Textdatei einliest. Die eingelesenen Daten sollen über einen Logger geloggt werden. Es gibt zwei Arten von Loggern: Einen Konsolenlogger, welcher strings in der Konsole ausgibt, und einen Filelogger, welcher strings in Textdateien schreiben kann.
+	
+	Beim Programmstart kann über eine Eingabe festgelegt werden, welche Art von Logger verwendet werden soll. Handelt es sich um einen Filelogger, ist auch noch zusätzlich der Name der zu schreibenden Logdatei einzugeben.
+	
+	Schreibe ein Programm, welches diese Anforderungen mithilfe von Polymorphie löst! Gib reservierten dynamischen Speicher frei und schließe geöffnete Files -- berücksichtige auch Fehlerfälle!
+\end{frame}
+
+\begin{frame}
+	\frametitle{Erweiterungen}
+	
+	Folgendes ist weiters zu recherchieren und hinzuzufügen:
+	\bi
+	\item Verwende einen geeigneten "`Smart Pointer"', um \newline dynamischen Speicher automatisch wieder freizugeben
+	\item Füge dem Programm eine eigene Klasse für Kunden hinzu
+	\bi
+	\item Ein Kunde besitzt eine Kundennummer und einen Namen
+	\item Ein Kundenobjekt kann über den \lstinline|<<|-Operator in ein strukturiertes Format umgewandelt werden
+	\item Ein Kundenobjekt kann über den \lstinline|>>|-Operator eingelesen werden -- denke an Fehlerfälle!
+	\ei
+	\item Finde geeignete Konstruktoren, Destruktoren und (falls nötig) weitere notwendige Methoden!
+	\item Verwende die implementierte Kundenklasse für das Einlesen der Kundendaten und die Ausgabe im Logger!
+	\ei
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{Übung}
+	
+%	Eure Aufgabe bis zur nächsten Übungsstunde:
+%	\bi
+%		\item a
+%	\ei
+		
+%\end{frame}
+\end{document}
