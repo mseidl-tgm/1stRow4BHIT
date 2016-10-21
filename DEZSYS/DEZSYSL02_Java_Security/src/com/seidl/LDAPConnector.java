@@ -1,3 +1,5 @@
+package com.seidl;
+
 import javax.naming.*;
 import javax.naming.directory.*;
 
@@ -11,7 +13,7 @@ import java.util.Hashtable;
  */
 public class LDAPConnector {
 	
-	private static String host = "localhost";
+	private static String host = "10.221.85.71";
 	private static int port = 389;
 	private static String auth_user = "cn=admin,dc=nodomain,dc=com";
 	private static String auth_password = "user";
@@ -101,7 +103,7 @@ public class LDAPConnector {
 	        NamingEnumeration listName = search( "dc=nodomain,dc=com", "(&(objectclass=PosixGroup)(cn=group.service3))" );
 		    
 	        if ( listName.hasMoreElements() )
-	        	updateAttribute( "cn=group.service1,dc=nodomain,dc=com", "description", "seas" );
+	        	updateAttribute( "cn=group.Service1,dc=nodomain,dc=com", "description", "seas" );
 		    
 		    // Print the answwer
 	        // printSearchResult( answer );

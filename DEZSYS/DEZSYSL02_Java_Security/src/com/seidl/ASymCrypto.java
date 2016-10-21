@@ -1,3 +1,4 @@
+package com.seidl;
 /*
  * Java Security Documentation:
  *
@@ -19,6 +20,8 @@
  *
  */
 
+import com.seidl.LDAPConnector;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -33,7 +36,6 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.SearchResult;
 
 import javax.xml.bind.DatatypeConverter;
-
 
 
 class ASymCrypto {
@@ -104,11 +106,11 @@ class ASymCrypto {
             
             /* Store Public Key in Naming Directory */
             LDAPConnector ldapConnector = new LDAPConnector();
-            ldapConnector.updateAttribute( "cn=group.service1,dc=nodomain,dc=com", "description", toHexString( key ) );
+            ldapConnector.updateAttribute( "cn=group.Service1,dc=nodomain,dc=com", "description", toHexString( key ) );
 
             /* Read Public Key from Naming Directory */
             String ldapKey = null;
-            NamingEnumeration listName =ldapConnector.search( "dc=nodomain,dc=com", "(&(objectclass=PosixGroup)(cn=group.service1))" );
+            NamingEnumeration listName =ldapConnector.search( "dc=nodomain,dc=com", "(&(objectclass=PosixGroup)(cn=group.Service1))" );
             while ( listName.hasMore() ) {
                 SearchResult sr = (SearchResult) listName.next();
                 ldapKey = getPublicKey( sr.getAttributes() ).toString();
