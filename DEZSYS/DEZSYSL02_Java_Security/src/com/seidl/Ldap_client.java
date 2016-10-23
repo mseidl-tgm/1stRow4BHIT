@@ -10,10 +10,7 @@ import javax.naming.directory.SearchResult;
 import javax.xml.bind.DatatypeConverter;
 import javax.xml.crypto.Data;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.security.KeyFactory;
 import java.security.PublicKey;
@@ -28,13 +25,18 @@ import static com.seidl.ASymCrypto.getPublicKey;
  */
 public class Ldap_client {
 
-    private String host = "";
+    private String host = "localhost";
     private String pubKey = "";
     private SecretKey secretKey  = null;
     private PublicKey pubKeyasKey = null;
     private byte[] cryptedSecret = null;
     private Socket s = null;
-    private byte[] msg = "Das funktioniert nicht!".getBytes();
+    // private byte[] msg = "Das funktioniert nicht!".getBytes();
+    private String encryptedMsg = "";
+
+    private PrintWriter out;
+    private BufferedReader in;
+    private BufferedReader stdIn;
 
 
     public Ldap_client(){
@@ -54,6 +56,9 @@ public class Ldap_client {
     }
     public static byte[] toByteArray(String s) {
         return DatatypeConverter.parseHexBinary(s);
+    }
+    public static String toHexString(byte[] array) {
+        return DatatypeConverter.printHexBinary(array);
     }
     public void getPublicKeyFromLdap(){
         LDAPConnector ldapConnector = new LDAPConnector();
@@ -98,24 +103,28 @@ public class Ldap_client {
             e.printStackTrace();
         }
     }
-    public void createClientSocket(){
-        try (
-                Socket s = new Socket(host, 9999);
-        )
-        {
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
-    public void writeEncryptedSecretKeytoInputStream(){
-        try {
-            OutputStream out = s.getOutputStream();
-            DataOutputStream dos = new DataOutputStream(out);
-            dos.write(cryptedSecret);
-        }catch (Exception e){
-            e.printStackTrace();
+    public void readWriteEncryptedSecretKeyToInputStream(boolean rw){
+        if(rw = true) {
+            try {
+                out = new PrintWriter(s.getOutputStream(), true);
+                System.out.println(toHexString(cryptedSecret));
+                out.println(toHexString(cryptedSecret));
+                out.flush();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
+        if(rw = false){
+            try {
+                this.in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                this.stdIn = new BufferedReader(new InputStreamReader(System.in));
+                encryptedMsg = in.readLine();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 
@@ -126,8 +135,12 @@ public class Ldap_client {
         lc.createSecretKey();
         lc.pubKeyStringtoKey();
         lc.encryptSecret();
-        lc.createClientSocket();
-        lc.writeEncryptedSecretKeytoInputStream();
+        try {
+            lc.s = new Socket(lc.host, 999);
+            lc.readWriteEncryptedSecretKeyToInputStream(true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
 

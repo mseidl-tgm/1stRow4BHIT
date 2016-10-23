@@ -13,7 +13,7 @@ import java.util.Hashtable;
  */
 public class LDAPConnector {
 	
-	private static String host = "10.221.85.71";
+	private static String host = "192.168.1.121";
 	private static int port = 389;
 	private static String auth_user = "cn=admin,dc=nodomain,dc=com";
 	private static String auth_password = "user";
