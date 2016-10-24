@@ -41,6 +41,7 @@ Der komplette Source-Code befindet sich in meinem Git-Repository unter dem Link:
 Die wichtigste Methode \textit{genKeyPair} generiert ein Schlüsselpaar, welches in \textbf{public}- und \textbf{private}-Key unterteilt werden kann.
 Hierfür gibt es einen sogenannten \textit{KeyPairGenerator}. Am Schluß werden noch die Attribute, welche die Keys enthalten sollen, gesetzt.
 
+
 \begin{lstlisting}[style=Java, caption= RSA KeyPair generation]
     public void genKeyPair(){
 	    try {
@@ -80,9 +81,12 @@ Verschlüsseln.
 	}
 \end{lstlisting}
 
+\newpage
+
 \subsection{Client}
 
-Die Methode \textit{encryptSecret} verschlüsselt den generierten Secret-Key mit dem \textbf{public}-Key aus dem LDAP-Verzeichnissystem. Hier wird wieder ein \textbf{Cipher} verwendet um die den Secret-Key zu ''ummanteln'';
+Die Methode \textit{encryptSecret} verschlüsselt den generierten Secret-Key mit dem \textbf{public}-Key aus dem LDAP-Verzeichnissystem. Hier wird wieder ein \textbf{Cipher} verwendet um die den Secret-Key zu ''ummanteln''.
+
 
 \begin{lstlisting}[style=Java, caption= SecretKey encrypting on Client-Side]
     public byte[] encryptSecret(){
@@ -100,8 +104,34 @@ Die Methode \textit{encryptSecret} verschlüsselt den generierten Secret-Key mit
     }
 \end{lstlisting}
 
+\subsection{UML-Diagramm}
+Das Diagramm befindet sich auf der nächsten Seite.
 
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=\textwidth]{images/Java_Security_UML}
+		\caption{UML-Diagramm des Java-Programms}
+		\label{broker}
+	\end{center}
+\end{figure}
 
+\subsection{Probleme}
+Bei den ersten Tests sind einige \textbf{Connection-Probleme} bei den Sockets aufgetreten, welche dann zu \textbf{Null-Pointer-Exceptions} bei der Codierung geführt haben. Diese haben sich aber dann durch Abstraktion der \textbf{readWrite}-Methoden aufgelöst.
+
+\subsection{Zeitaufzeichnung}
+
+\begin{table}[!h]
+	\centering
+	\caption{Zeitaufzeichnung}
+	\label{my-label}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Datum, Anzahl in h}} & \multicolumn{1}{c|}{\textbf{Task}} & \multicolumn{1}{c|}{\textbf{Ort}} \\ \hline
+		18.10.2016, 3 h                                   & Diagramentwicklung                 & TGM/daheim                        \\ \hline
+		20.10.2016, 4 h                                   & Code-Entwicklung, Debugging        & TGM/daheim                        \\ \hline
+		21.10.2016, 2 h                                   & Protkoll, Debugging                & McDonald/daheim                   \\ \hline
+	\end{tabular}
+\end{table}
 
 
 
