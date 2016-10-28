@@ -16,3 +16,11 @@ https://de.wikipedia.org/wiki/Border_Gateway_Protocol
 https://de.wikipedia.org/wiki/Anycast
 
 https://de.wikipedia.org/wiki/Autonomes_System
+
+https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fusers.cs.jmu.edu%2Fbernstdh%2Fweb%2Fcommon%2Flectures%2Fimages%2Fanycast-example.gif&f=1
+
+https://de.wikipedia.org/wiki/Lastverteilung_(Informatik)
+
+https://de.wikipedia.org/wiki/Lastverteilung_per_DNS
+
+http://www.webopedia.com/TERM/R/Round_Robin_DNS.html
