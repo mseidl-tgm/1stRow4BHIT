@@ -4,8 +4,9 @@
 \contentsline {subsection}{\numberline {2.2}Syria Civil War}{4}{subsection.2.2}
 \contentsline {section}{\numberline {3}USA vs. Russia, War for resources}{6}{section.3}
 \contentsline {section}{\numberline {4}Islamic State of Iraq and the Levant}{9}{section.4}
-\contentsline {section}{\numberline {5}Refugee crisis impact on Europe}{10}{section.5}
-\contentsline {subsection}{\numberline {5.1}What routes are people using?}{10}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}What is their goal?}{12}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Fair share over EU countries?}{13}{subsection.5.3}
-\contentsline {section}{\numberline {6}Conclusion}{14}{section.6}
+\contentsline {section}{\numberline {5}Historical refugee crisis}{10}{section.5}
+\contentsline {section}{\numberline {6}Refugee crisis impact on Europe}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}What routes are people using?}{10}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}What is their goal?}{12}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Fair share over EU countries?}{13}{subsection.6.3}
+\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}
