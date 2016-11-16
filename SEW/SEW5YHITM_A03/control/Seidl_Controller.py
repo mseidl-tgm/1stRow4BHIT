@@ -13,28 +13,30 @@ class Seidl_Controller(QMainWindow):
 
     def connectButtons(self):
 
-        for playButton in self.Seidl_Game_View_Control.playButtons:
-            QtCore.QObject.connect(playButton, QtCore.SIGNAL('clicked()'), self.onClicked),
+        for pButton in self.Seidl_Game_View_Control.pButtons:
+            QtCore.QObject.connect(pButton, QtCore.SIGNAL('clicked()'), self.onClicked),
         
         QtCore.QObject.connect(self.Seidl_Game_View_Control.newButton, QtCore.SIGNAL('clicked()'), self.onClicked)
 
     def start(self):
-        self.Seidl_Game_View_Control.newGame(self.Seidl_Model.generateRandomField())
+        self.Seidl_Game_View_Control.restartGame(self.Seidl_Model.generateRandomField())
 
     def onClicked(self):
 
         sender = self.sender()
 
         if sender.text() == "Neu":
-            self.Seidl_Game_View_Control.newGame(self.Seidl_Model.generateRandomField())
-            self.Seidl_Model.newGame()
+            self.Seidl_Game_View_Control.restartGame(self.Seidl_Model.generateRandomField())
+            self.Seidl_Model.restartGame()
 
         else:
             self.Seidl_Game_View_Control.defineButtonStatus(sender, self.Seidl_Model.getUserAction(sender))
             self.Seidl_Game_View_Control.updateStats(self.stats.getStats())
 
     def __init__(self, parent=None):
-
+        """
+        Dies ist der Controller, welcher die GUI mit der Logik verknüpft und somit das Spiel zum Laufen bringt
+        """
         super().__init__(parent)
         self.game = view.Seidl_Game_View.Ui_MainWindow()
         self.game.setupUi(self)

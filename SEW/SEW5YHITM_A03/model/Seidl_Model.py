@@ -13,7 +13,7 @@ class Seidl_Model(object):
     def __init__(self, stats):
         self.stats = stats
 
-    def newGame(self):
+    def restartGame(self):
         self.next = 0
         self.stats.defineGames(1)
         self.stats.resetValues()
@@ -22,7 +22,7 @@ class Seidl_Model(object):
     def getUserAction(self, button):
         if not button.text() == "Neu":
             if int(button.text()) == self.next:
-                self.next += 1
+                self.next = self.next + 1
                 self.stats.defineOpen(-1)
                 self.stats.defineCorrect(1)
 

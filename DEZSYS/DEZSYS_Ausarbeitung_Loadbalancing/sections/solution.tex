@@ -8,16 +8,16 @@ Lastverteilung auf einem System mit mehreren Prozessoren, bis hin zu ganzen Comp
 
 \section{Serverlastverteilung}
 
-Serverlasterverteilung (englisch Server Load Balancing ''SLB'') kommt überall dort zum Einsatz, wo sehr viele Clients eine hohe Anfragedichte erzeugen und damit einen einzelnen Server-Rechner überlasten würden.\newline
+Serverlasterverteilung (englisch Server Load Balancing ''SLB'') kommt zum Einsatz, wenn sehr viele Clients eine hohe Anfragedichte erzeugen und damit einen einzelnen Server-Rechner überlasten würden.\newline
 
 Typische Kriterien zur Ermittlung der Notwendigkeit von SLB sind die \textbf{Datenrate}, die \textbf{Anzahl der Clients} und die \textbf{Anfragerate}. \newline
 
-Die Erhöhung der Datenverfügbarkeit wird durh SLB gefördert. Reduntate Datenhaltung wird durh das Einsetzen von mehreren Systemen ermöglicht. Die Aufgabe des SLB ist hier die Vermittlung der Clients an die einzelnen Server. \newline
+Die Zunahme der Datenverfügbarkeit wird durch SLB gefördert. Reduntate Datenhaltung wird durch den Einsetzen von mehreren Systemen ermöglicht. Die Aufgabe des SLB ist in diesem Fall die Vermittlung der Clients an die einzelnen Server. \newline
 
 \section{Verfahren von SLB}
-Es bieten sich einige verschiedene Verfahren, welche bei Server Load Balancing zum Einsatz kommen können. Ein mögliches Verfahren wäre das Vorschalten eines Systems (\textbf{Load Balancer, Frontend Server}), der Anfragen aufteilt, oder die Verwendung von DNS (Domain-Name-System) mit dem sogenannten \textbf{Round-Robin-Verfahren}. Bei Webservern darf eine Serverlastverteilung nicht fehlen, da ein einzelner Host nur eine begrenzte Anzahl an HTTP-Anfragen auf einmal beantworten kann. Es besteht auch die Möglichkeit, dass der Load Balancer die Verschlüsselung zum Client übernimmt und intern die Anfragen auf seine Art und Weiße verarbeitet. \newline
+Es werden einige verschiedene Verfahren geboten, welche bei Server Load Balancing zum Einsatz kommen können. Ein mögliches Verfahren wäre das Vorschalten eines Systems (\textbf{Load Balancer, Frontend Server}), der Anfragen aufteilt, oder die Verwendung von DNS (Domain-Name-System) mit dem sogenannten \textbf{Round-Robin-Verfahren}. Bei Webservern darf eine Serverlastverteilung nicht fehlen, da ein einzelner Host nur eine begrenzte Anzahl an HTTP-Anfragen auf einmal beantworten kann. Es besteht auch die Möglichkeit, dass der Load Balancer die Verschlüsselung zum Client übernimmt und intern die Anfragen auf seine Art und Weise verarbeitet. \newline
 
-Es bestehen folgende Verfahren:
+Es stehen folgende Verfahren zur Verfügung:
 \begin{itemize}
 	\item \ref{RoundRobin} DNS Round Robin
 	\item \ref{FlatSLB} Flat based SLB
@@ -29,10 +29,10 @@ Es bestehen folgende Verfahren:
 \subsection{DNS Round Robin}\cite{LastverteilungPerDNS}
 \label{RoundRobin}
 
-Lastverteilung per DNS (englisch Round robin DNS) ist die einfachste Technik zur SLB auf Basis des DNS. Da es aber zu einem Caching der DNS-Antworten kommt, ist dieses Verfahren nur manchmal wirklich sinnvoll.
+Lastverteilung per DNS (englisch Round robin DNS) ist die einfachste Methode zur SLB auf Basis des DNS. Da es allerdings zu einem Caching der DNS-Antworten kommt, ist dieses Verfahren nur manchmal wirklich sinnvoll.
 
 \subsubsection{Aufbau und Funktionsweise}\cite{RoundRobinDNS}
-DNS lässt es zu, dass einem Namen mehrere IP-Adressen zugewiesen werden können. Dies bedeutet es können mehrere sogenannte \textbf{Resource Records} mit gleichem Label, gleicher Klasse und gleichem Typ entstehen. Eine deartige Anordnung wird als \textit{Resource Record Set} bezeichnet.
+DNS lässt es zu, dass einem Namen mehrere IP-Adressen zugewiesen werden können. Dies bedeutet, dass mehrere sogenannte \textbf{Resource Records} mit gleichem Label, gleicher Klasse und gleichem Typ entstehen. Eine deratige Anordnung wird als \textit{Resource Record Set} bezeichnet.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -56,7 +56,7 @@ Nach welcher Vorgangsweise ein DNS die Reihenfolge vorgibt, kann bei
 \textit{Bind}-kompatiblen Nameservern konfiguriert werden. Bei \textbf{BIND} sind drei Varianten möglich: \textbf{zyklisch}, \textbf{zufällig} oder \textbf{fest}. Die Reihenfolge bei zyklisch und zufällig ist selbsterklärend, jedoch bei fest werden die IP-Adressen in der Reihenfolge zurückgegeben, in der sie im DNS abgelegt worden sind.
 
 \subsubsection{Technischer Fortschritt}\cite{SRVResourceRecord}
-Mittels \textbf{SRV} (Service Resource Records) kann per DNS erkannt werden, welche IP-basierenden Dienste in einer Domain angeboten werden. So wird zu jedem Dienst weitere Information geliefert, wie zum Beispiel der Sever-Name, der diesen Dienst bereitstellt.
+Mittels \textbf{SRV} (Service Resource Records) kann per DNS erkannt werden, welche IP-basierenden Dienste in einer Domain angeboten werden. So wird zu jedem Dienst weitere Information geliefert, wie zum Beispiel der Server-Name, der diesen Dienst bereitstellt.
 
 \begin{center}
 	
@@ -67,7 +67,7 @@ Mittels \textbf{SRV} (Service Resource Records) kann per DNS erkannt werden, wel
 
 
 Bei \textbf{NAPTR}, ausgeschrieben \textit{Naming Authority Pointer Resource Records}
-werden DNS-Namen, Adressen von Servern und weitere Informationen zugeordnet. Diese Records liefern die zusätzliche Informationen auf flexible Art und Weise. Außerdem wird das Protokoll angegeben, das der Server verwendet. Falls mehrere NAPTR-Records zu einem Namen existieren, kann eine \textbf{Priorisierung} festgelegt werden. Auch wenn mehrere Records gleicher Priorität zu einem Namen existieren, kann eine Lastverteilung erreicht werden.
+werden DNS-Namen und Adressen von Servern, sowie weitere Informationen zugeordnet. Diese Records liefern die zusätzliche Informationen auf flexible Art und Weise. Außerdem wird das Protokoll angegeben, das der Server verwendet. Falls mehrere NAPTR-Records zu einem Namen existieren, kann eine \textbf{Priorisierung} festgelegt werden. Auch wenn mehrere Records gleicher Priorität zu einem Namen existieren, kann eine Lastverteilung erreicht werden.
 
 Bei moderneren Resource-Record-Typen lässt sich außerdem noch eine Gewichtung definieren, die festlegt, welche Server-IP-Adressen am häufigsten an erster Stelle stehen. Die entsprechenden Server werden damit häufiger angesprochen.
 
@@ -84,9 +84,9 @@ Die Lastverteilung durch DNS ist natürlich nur in dem Sinn gleichmäßig, was d
 Bei diesem Verfahren wird nur ein Netzwerk benötigt. Die Server und der Load Balancer müssen über einen Switch miteinander verbunden sein. Sendet der Client eine Anfrage (an den Load Balancer), wird der entsprechende Ethernet-Frame so manipuliert, dass es eine direkte Anfrage des Clients an den Server darstellt.
 
 \subsubsection{Aufbau und Funktionsweise}
-Bei einer \textbf{flat based SLB}  tauscht der Load Balancer bei Anfragen seine eigene \textbf{MAC-Adresse} gegen die des zu vermittelnden Servers aus und sendet dann das Paket weiter. Die \textbf{IP-Adressen} bleiben hierbei \textbf{unverändert}. Bei einem deartigen Vorgehen spricht man auch von \textbf{MAT (MAC Address Translation)}. Der Server, welcher die Anfrage bekommen hat, schickt seine Antwort direkt an die IP-Adresse des Absenders, also die des Clients.
+Bei einer \textbf{flat based SLB}  tauscht der Load Balancer bei Anfragen seine eigene \textbf{MAC-Adresse} gegen die des zu vermittelnden Servers aus und sendet dann das Paket weiter. Die \textbf{IP-Adressen} bleiben hierbei \textbf{unverändert}. Bei einem derartigen Vorgehen spricht man auch von \textbf{MAT (MAC Address Translation)}. Der Server, welcher die Anfrage bekommen hat, schickt seine Antwort direkt an die IP-Adresse des Absenders, also die des Clients.
 
-Der Client hat damit den Eindruck mit, er kommuniziere nur mit einem einzigen Rechner, welcher aber der Load Balancer ist, obwohl der Server selber tatsächlich nur mit einem einzigen Client kommuniziert. Dieses Verfahren wird als \textbf{DSR (Direct Server Return)} bezeichnet.
+Der Client hat damit den Eindruck, er kommuniziere nur mit einem einzigen Rechner, wobei es sich um den Load Balancer handelt. Der Server selbst kommuniziert nur mit einem einzigen Client. Dieses Verfahren wird als \textbf{DSR (Direct Server Return)} bezeichnet.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -102,10 +102,10 @@ Der Vorteil bei Flat based SLB ist die Entlastung des Load Balancers, da der mei
 \newpage
 \subsection{NAT based SLB}\cite{SLBbook}
 \label{NATSLB}
-NAT basierte SLB-Netzwerkarchitekturen sind definitionsgemäß, jene Verfahren bei denen sich die IPs der \textbf{virtuellen IPs} und der \textbf{realen Server} in verschiedenen Subnets befinden. Diese Vorgänge heißen NAT, weil der Load Balancer NAT-Pakete zwischen zwei Subnets, wie eine \textbf{Firewall} oder ein \textbf{Router}, transferiert.
+NAT basierte SLB-Netzwerkarchitekturen sind definitionsgemäß jene Verfahren, bei denen sich die IPs der \textbf{virtuellen IPs} und der \textbf{realen Server} in verschiedenen Subnets befinden. Diese Vorgänge heißen NAT, weil der Load Balancer NAT-Pakete zwischen zwei Subnets, wie eine \textbf{Firewall} oder ein \textbf{Router}, transferiert.
 
-\subsubsection{Implementation}
-Der Hauptunterschied zwischen NAT- und Flat-basierten Architekturen besteht darin, dass der Load Balancer ein NAT zwischen einem Netzwerk und einem anderen ausführt. Die wohl einfachste und typische Art, ein NAT based SLB zu implementieren, ist eine 
+\subsubsection{Implementierung}
+Der Hauptunterschied zwischen NAT- und Flat-basierten Architekturen besteht darin, dass der Load Balancer ein NAT zwischen zwei Netzwerken ausführt. Die wohl einfachste und typischste Art, ein NAT based SLB zu implementieren, ist eine 
 \textbf{route-path, two-armed} Konfiguration. In der \textbf{\hyperref[nat_slb_01]{nachfolgenden Abbildung}} wird der Ablauf so einer Konfiguration beschrieben. Es zeigt wie der Load Balancer die normalen \textbf{Routing-IP-Adressen} in \textbf{nonrouted} IPs, auf denen die realen Server sitzen, übersetzt.
 \begin{figure}[!h]
 	\begin{center}
@@ -115,9 +115,9 @@ Der Hauptunterschied zwischen NAT- und Flat-basierten Architekturen besteht dari
 	\end{center}
 \end{figure}
 \newline
-In dieser Konfiguration befinden sich die Server in einem separaten VLAN, welche die die VIP-Adressen (Virtuelle IP-Adressen) des Load Balancers besitzen. Die einzigen \textbf{floating IPs} befinden sich im \textit{public} Netzwerk, welche zwischen den \textbf{aktiven} und \textbf{standby} Load Balancern angelegt sind. Ein Floating-Standard-Gateway wird im \textit{public}-Bereich nicht benötigt, da die Load Balancer nicht die Rolle eines Gateways übernehmen. Das Floating-Gateway ist in das private Netzwerk integriert. Die Load Balancer übernehmen bei diesem Verfahren die Rolle einer \textbf{Firewall}, weil diese eine enge Kontrolle über den Netzwerkverkehr haben.
+In dieser Konfiguration befinden sich die Server in einem separaten VLAN, welche die VIP-Adressen (Virtuelle IP-Adressen) des Load Balancers besitzen. Die einzigen \textbf{floating IPs} befinden sich im \textit{public} Netzwerk, welche zwischen den \textbf{aktiven} und \textbf{standby} Load Balancern angelegt sind. Ein Floating-Standard-Gateway wird im \textit{public}-Bereich nicht benötigt, da die Load Balancer nicht die Rolle eines Gateways übernehmen. Das Floating-Gateway ist in das private Netzwerk integriert. Die Load Balancer übernehmen bei diesem Verfahren die Rolle einer \textbf{Firewall}, weil diese eine enge Kontrolle über den Netzwerkverkehr haben.
 
-Außerdem gibt es noch eine andere Methode, bei der sich alle Geräte nur \textbf{ein LAN} teilen. Die Load Balancer sind hierbei für mehrere Netzwerke im selben LAN konfiguriert und übernehmen somit das NAT. In der \textbf{\hyperref[nat_slb_02]{folgenden Abbildung}} wird der Aufbau eines \textbf{route-path, one-armed} SLB dargestellt.
+Außerdem gibt es noch eine andere Methode bei der sich alle Geräte nur \textbf{ein LAN} teilen. Die Load Balancer sind hierbei für mehrere Netzwerke im selben LAN konfiguriert und übernehmen somit das NAT. In der \textbf{\hyperref[nat_slb_02]{folgenden Abbildung}} wird der Aufbau eines \textbf{route-path, one-armed} SLB dargestellt.
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{images/slb_0702}
@@ -128,13 +128,13 @@ Außerdem gibt es noch eine andere Methode, bei der sich alle Geräte nur \textb
 
 Die Load Balancer sind in dieser Architektur für zwei Subnetze im gleichen LAN konfiguriert, einer für die öffentlichen Schnittstellen der virtuellen IPs und der andere für das private Subnet der Server. Obwohl sich alles noch in einem LAN befindet, übernimmt der Load Balancer das NAT.
 
-Sowohl aus Sicherheitsgründen als auch aus architektonischer Sicht ist es \textbf{besser}, eine \textbf{two-armed} Architektur mit zwei seperaten LANs (oder VLANs) zu verwenden. Wenn alles in ein LAN untergbracht wird, werden Sicherheitsziele und Vorteile einer NAT-basierten Konfiguration vernachlässigt. Das tatsächliche Bestehen einer Schranke zwischen öffentlichen und privaten Netzwerk, verstärkt die Gesamtsicherheit eines Netzwerks. Der Datenfluß ist mit zwei VLANs einfach zu verwalten, da es klare Abgrenzungspunkte für die beiden getrennten Netze gibt, wodurch die Fehlersuche in den meisten Fällen extrem erleichtert wird.
+Sowohl aus Sicherheitsgründen als auch aus architektonischer Sicht ist es \textbf{besser}, eine \textbf{two-armed} Architektur mit zwei seperaten LANs (oder VLANs) zu verwenden. Wenn alles in einem LAN untergebracht wird, werden Sicherheitsziele und Vorteile einer NAT-basierten Konfiguration vernachlässigt. Das tatsächliche Bestehen einer Schranke zwischen öffentlichem und privatem Netzwerk, verstärkt die Gesamtsicherheit eines Netzwerks. Der Datenfluss ist mit zwei VLANs einfach zu verwalten, da es klare Abgrenzungspunkte für die beiden getrennten Netze gibt, wodurch die Fehlersuche in den meisten Fällen extrem erleichtert wird.
 \newpage
 
 \subsubsection{Bridge-Path and Direct Server Return}
-Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell ist, ist die Variante \textbf{bridge-path} keine Option für NAT-basiertes SLB. Damit NAT funktioniert muss der Load Balancer Interfaces auf zwei Netzwerken haben, aber bridge-path baut normalerweise auf nur einem Netz auf.
+Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell ist, ist die Variante \textbf{bridge-path} keine Option für NAT-basiertes SLB. Damit NAT funktioniert muss der Load Balancer Interfaces auf zwei Netzwerken haben, allerdings baut bridge-path normalerweise auf nur einem Netz auf.
 
-\textbf{DSR (Direct Server Return)} tritt nicht häufig, im Gegensatz zu flat-basierenden Architekturen, bei NAT-basierenden Szenarien auf, ist aber trotzdem möglich. Hiebei wird aber zusätzlich zum Load Balancer und einer Layer 2 Infrastruktur ein Layer 3 Gerät benötigt. Bei Direct Server Return werden Pakete bereits modifiziert versendet und das Layer 3 Element leitet diese einfach von einem Netzwerk zu einem anderen. Das Modifizieren benötigt zwar mehr Rechenleistung für die Server, ist aber eine Entlastung für den Load Balancer. In der \textbf{\hyperref[nat_slb_03]{folgenden Abbildung}} wird ein Beispiel einer solchen Konfiguration dargestellt.
+\textbf{DSR (Direct Server Return)} tritt bei NAT-basierenden Szenarien, im Gegensatz zu flat-basierenden Architekturen nicht häufig auf, ist aber trotzdem möglich. Hierbei wird aber zusätzlich zum Load Balancer und einer Layer 2 Infrastruktur ein Layer 3 Gerät benötigt. Bei Direct Server Return werden Pakete bereits modifiziert versendet und das Layer 3 Element leitet diese einfach von einem Netzwerk zu einem anderen. Das Modifizieren benötigt zwar mehr Rechenleistung für die Server, ist aber eine Entlastung für den Load Balancer. In der \textbf{\hyperref[nat_slb_03]{folgenden Abbildung}} wird ein Beispiel einer solchen Konfiguration dargestellt.
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{images/slb_0703}
@@ -147,18 +147,18 @@ Da NAT von einem Netzwerk zu einem anderen eine Layer 3 Funktion im  OSI-Modell 
 	\item \textbf{Schritt 1:}
 	\subitem Ein Paket kommt zum Load Balancer
 	\item \textbf{Schritt 2:}
-	\subitem Wird zu einem Webserver weitergeleitet
+	\subitem Es zu einem Webserver weitergeleitet
 	\item \textbf{Schritt 3:}
-	\subitem Der Webserver versendet dann das Paket bereits umgeschrieben
+	\subitem Der Webserver versendet das Paket bereits umgeschrieben
 	\item \textbf{Schritt 4:}
 	\subitem Es muss nun noch zum \textit{public} Netzwerk weitergeleitet werden, damit es in das Internet gelangt. Das  Layer 3 Element leitet somit das Paket unverändert an das öffentliche Netzwerk.
 \end{itemize}
 Hierbei ist die eigentliche Belastung des Load Balancers sehr gering, den die einzige Aufgabe besteht darin, die Pakete durch zu leiten ohne weiteren Aufwand.
 
 \subsubsection{Warum NAT-basierend?}
-Es gibt mehrere Vorteile für NAT-basierte SLB. Einer davon ist die extra Sicherheit, welche durch eine NAT-Struktur gewährleistet wird. Im Umgang mit Servern auf einem \textbf{nonrouting} IP-Adressen-Pool hat man eine bessere Kontrolle über die tatsächliche Sichtbarkeit nach außen, besser gesagt: Wie der Server von außen gesehen wird.
+Es gibt mehrere Vorteile für NAT-basierte SLB. Einer davon ist die extra Sicherheit, welche durch eine NAT-Struktur gewährleistet wird. Im Umgang mit Servern auf einem \textbf{nonrouting} IP-Adressen-Pool hat man eine bessere Kontrolle über die tatsächliche Sichtbarkeit nach außen, Besser gesagt: Wie der Server von außen gesehen wird.
 
-Die NAT based SLB eignet sich gut für Websiten, bei denen die Mehrheit des Datenverkehrs HTTP (oder SSL) ist. Mit der zusätzlichen Sicherheit der NAT-IPs und der relative niedrigen Abhängigkeit nach außen, bietet eine NAT based Architektur ein zusätzliches Maß an Sicherheit und Zuverlässigkeit.
+Die NAT based SLB eignet sich gut für Websiten, bei denen die Mehrheit des Datenverkehrs HTTP (oder SSL) ist. Mit der zusätzlichen Sicherheit der NAT-IPs und der relativ niedrigen Abhängigkeit nach außen, bietet eine NAT based Architektur ein zusätzliches Maß an Sicherheit und Zuverlässigkeit.
 \newpage
 
 
@@ -167,9 +167,9 @@ Die NAT based SLB eignet sich gut für Websiten, bei denen die Mehrheit des Date
 Bei der Lastverteilung über \textbf{Anycast} wird eine ganze Gruppe von Rechnern/Servern über eine Adresse angesprochen. Es antwortet derjenige, der über die kürzeste Route erreichbar ist. Im Internet wird dieses mit \textbf{BGP (Border Gateway Protocol)} realisiert.
 
 \subsubsection{Anycast}\cite{anycast}
-Anycast ist eine Addressierungsart in Computernetzen, bei der man über eine Adresse einen einzelnen Rechner aus einer ganzen Gruppe von Rechnern ansprechen kann. Es antwortet derjenige, der über die kürzeste Route erreichbar ist. Diese Technik kommt gemäß \textbf{OSI-Modell} in der \textbf{Vermittlungsschicht} zum Einsatz.
+Anycast ist eine Addressierungsart in Computernetzen, bei der man über eine Adresse einen einzelnen Rechner aus einer ganzen Gruppe von Rechnern ansprechen kann. Es antwortet derjenige, der über die kürzeste Route erreichbar ist. Diese Technik befinden sich gemäß \textbf{OSI-Modell} in der \textbf{Vermittlungsschicht}.
 
-Realisiert wird Anycast durch eine Verteilung mehrerer gleichartiger Server auf geografisch getrennte IP-Netze. In der Praxis wird oft auf jedem Kontinent oder in jedem Land einer Region mindestens ein Server installiert. Jeder dieser Rechner erhält dieselbe IP-Adresse und propagiert eine entsprechende Route über ein Routing-Protokoll (\textbf{BGP}). Bei Ausfall oder Unerreichbarkeit verschwindet die Route und alle folgenden Pakete werden zu einem anderen Server geleitet. Der gewünschte Service bleibt somit auch bei Ausfall eines Servers verfügbar. Damit erhöht sich die Verfügbarkeit und Ausfallsicherheit. Zur Administration muss ein Server auch direkt angesprochen werden können. Anycast-Server besitzen daher in fast allen Fällen zusätzlich eine eigene \textbf{Unicast-Adresse}.
+Realisiert wird Anycast durch eine Verteilung mehrerer gleichartiger Server auf geografisch getrennte IP-Netze. In der Praxis wird oft auf jedem Kontinent oder in jedem Land einer Region mindestens ein Server installiert. Jeder dieser Rechner erhält dieselbe IP-Adresse und propagiert eine entsprechende Route über ein Routing-Protokoll (\textbf{BGP}). Bei Ausfall oder Unerreichbarkeit verschwindet die Route und alle folgenden Pakete werden zu einem anderen Server geleitet. Der gewünschte Service bleibt somit auch bei Ausfall eines Servers verfügbar. Damit erhöht sich die Verfügbarkeit und die Ausfallsicherheit. Zur Administration muss ein Server direkt angesprochen werden können. Anycast-Server besitzen daher in fast allen Fällen zusätzlich eine eigene \textbf{Unicast-Adresse}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -178,11 +178,11 @@ Realisiert wird Anycast durch eine Verteilung mehrerer gleichartiger Server auf 
 		\label{anycast_slb_01}
 	\end{center}
 \end{figure}
-\subsubsection{BGP Border Gateway Protcol}\cite{BGP}
+\subsubsection{BGP Border Gateway Protocol}\cite{BGP}
 Dieses Protokoll wird hauptsächlich im Internet eingesetzt und verbindet\textbf{ Autonome Systeme (AS)} miteinander. Ein AS kann man als eine große Anzahl von IP-Adressen, betrachtet als eine Einheit, ansehen. Das Protokoll verwendet für Routing-Entscheidungen sowohl strategische, wie auch technisch-metrische Kriterien, wobei in der Praxis zusätzlich betriebswirtschaftliche Aspekte berücksichtigt werden.
 
 \subsubsection{Vorteile}
-Der Vorteil bei diesem Verfahren ist die geographisch nahe Auswahl eines Servers mit entsprechender Verringerung der Latenz (Ping). Die Umsetzung erfordert allerdings die Instandhaltung eines eigenen Autonomen Systems
+Der Vorteil bei diesem Verfahren liegt in der geographisch nahe Auswahl eines Servers mit entsprechender Verringerung der Latenz (Ping). Die Umsetzung erfordert allerdings die Instandhaltung eines eigenen Autonomen Systems
 
 
 

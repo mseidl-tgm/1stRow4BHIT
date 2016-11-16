@@ -10,10 +10,10 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Aufbau und Funktionsweise}{4}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Vorteile}{4}{subsubsection.3.2.2}
 \contentsline {subsection}{\numberline {3.3}NAT based SLB}{5}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Implementation}{5}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.1}Implementierung}{5}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Bridge-Path and Direct Server Return}{7}{subsubsection.3.3.2}
 \contentsline {subsubsection}{\numberline {3.3.3}Warum NAT-basierend?}{8}{subsubsection.3.3.3}
 \contentsline {subsection}{\numberline {3.4}Anycast SLB}{9}{subsection.3.4}
 \contentsline {subsubsection}{\numberline {3.4.1}Anycast}{9}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}BGP Border Gateway Protcol}{10}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.2}BGP Border Gateway Protocol}{10}{subsubsection.3.4.2}
 \contentsline {subsubsection}{\numberline {3.4.3}Vorteile}{10}{subsubsection.3.4.3}

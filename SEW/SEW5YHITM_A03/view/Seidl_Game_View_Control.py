@@ -1,16 +1,15 @@
 class Seidl_Game_View_Control(object):
-
-
     stats = None
-    playButtons = None
-    newGame = None
+    pButtons = None
+
 
     def __init__(self, game):
+        """
+        Dies ist quwasi der Controller für die GUI, welcher die Buttons und Labels setzt. Dies geschiet mittels
+        Structs, welche dann einzeln ausgelesen und gesetzt werden
+        """
         self.game = game
 
-        """
-        Verwendung von structs -> Christoph Miko
-        """
         self.stats = {
             "open": [self.game.open, self.game.open_n],
             "correct": [self.game.correct, self.game.correct_n],
@@ -19,7 +18,7 @@ class Seidl_Game_View_Control(object):
             "games": [self.game.games, self.game.games_n]
         }
 
-        self.playButtons = [
+        self.pButtons = [
             self.game.button_n_1,
             self.game.button_n_2,
             self.game.button_n_3,
@@ -45,20 +44,18 @@ class Seidl_Game_View_Control(object):
             sender.setEnabled(status)
 
     def updateStats(self, stats):
-        """
-        Verwendung von structs -> Christoph Miko
-        """
+
         self.stats["open"][1].setText(str(stats["open"]))
         self.stats["correct"][1].setText(str(stats["correct"]))
         self.stats["wrong"][1].setText(str(stats["wrong"]))
         self.stats["sum"][1].setText(str(stats["sum"]))
         self.stats["games"][1].setText(str(stats["games"]))
 
-    def newGame(self,numbers):
-        self.initField(numbers)
-        for button in self.playButtons:
+    def restartGame(self,numbers):
+        self.createNumbers(numbers)
+        for button in self.pButtons:
             button.setEnabled(True)
 
-    def initField(self, numbers):
+    def createNumbers(self, numbers):
         for i in range(15):
-            self.playButtons[i].setText(str(numbers[i]))
+            self.pButtons[i].setText(str(numbers[i]))
