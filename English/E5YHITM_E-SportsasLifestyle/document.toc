@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}What is E-Sport?}{1}{section.1}
+\contentsline {section}{\numberline {2}History}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Roots 1972-1994}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Networkbased E-Sport 1995-1999}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Global Tournaments}{4}{subsection.2.3}
+\contentsline {section}{\numberline {3}Classification as a sport}{6}{section.3}
+\contentsline {section}{\numberline {4}Games}{6}{section.4}
+\contentsline {section}{\numberline {5}Types of Video game design}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Spectator mode}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Online}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Local area network}{7}{subsection.5.3}
+\contentsline {section}{\numberline {6}Tournaments}{8}{section.6}
+\contentsline {section}{\numberline {7}Teams and associations}{8}{section.7}
+\contentsline {section}{\numberline {8}Ethics}{9}{section.8}
+\contentsline {subsection}{\numberline {8.1}Performance-enhancing drugs}{9}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Player exploitation}{9}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Economics}{9}{subsection.8.3}
+\contentsline {section}{\numberline {9}Media coverage}{10}{section.9}
+\contentsline {subsection}{\numberline {9.1}News reporting}{10}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Internet live streaming}{10}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Television}{11}{subsection.9.3}
