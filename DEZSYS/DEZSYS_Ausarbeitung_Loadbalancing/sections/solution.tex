@@ -14,6 +14,110 @@ Typische Kriterien zur Ermittlung der Notwendigkeit von SLB sind die \textbf{Dat
 
 Die Zunahme der Datenverfügbarkeit wird durch SLB gefördert. Reduntate Datenhaltung wird durch den Einsetzen von mehreren Systemen ermöglicht. Die Aufgabe des SLB ist in diesem Fall die Vermittlung der Clients an die einzelnen Server. \newline
 
+\section{Load Balancing Algorithmen}
+\cite{LoadBalancingAlgorithmen}
+Der eingehende Datenfluß eines Load Balancers kann mittels bestimmter Algorithmen effizient aufgeteilt werden. Hierbei wird von primitiven und komplexen Algorithmen unterschieden.
+\begin{itemize}
+	\item \ref{Round Robin} Round Robin
+	\item \ref{Fastest} Fastest
+	\item \ref{Least Connections} Least Connections
+	\item \ref{Observed} Observed
+	\item \ref{Predictive} Predictive
+\end{itemize}
+
+\newpage
+
+\subsection{Round Robin}
+\label{Round Robin}
+Round Robin übergibt jede neue Verbindungsanforderung an den nächsten Server, der in seinem internen Array an der Reihe ist. Dieser Algorithmus arbeitet gut in den meisten Netzwerkkonfigurationen, dennoch ist der optimale Anwendungsgebrauch bei unterschiedlich schneller Hardware. Dies bedeutet, dass die Hardware mit der Load Balancing betrieben wird, unterschiedlich in der Verarbeitungsgeschwindigkeit, der Verbindungsgeschwindigkeit und dem Speicher sein sollte.
+
+Folgende Zitate eines Entwicklers bei \textit{DevCentral} beschreibt den Umfang von Round Robin in kurzer Form.
+\begin{quote}
+	\textit{The system builds a standard circular queue and walks through it, sending one request to each machine before getting to the start of the queue and doing it again. While I’ve never seen the code (or actual load balancer code for any of these for that matter), we’ve all written this queue with the modulus function before. In school if nowhere else.}
+\end{quote}
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{images/lb_weighted}
+		\caption{Round Robin Algorithmus}
+		\label{broker}
+	\end{center}
+\end{figure}
+
+\subsubsection{Weighted Round Robin}
+Bei dieser speziellen Art von Round Robin, ist die Anzahl der Verbindungen, die jede Maschine über die Zeit erhält, proportional zu einem Verhältnisgewicht. Diese Gewichtung kann für jede Maschine manuell eingerichtet werden. Es ist beispielsweise möglich die Last auf die Maschinen folgendermaßen aufzuteilen: \textbf{Maschine 3 kann die 2-fache Last von Maschine 1 und 2 übernehmen.}
+
+\newpage
+
+\subsubsection{Dynamic Round Robin}
+
+Ist ähnlich dem Weighted Round Robin, dennoch besteht neben der Gewichtung auch noch eine kontinuierliche Überwachung der Maschinen/Server. Diese Art von Load Balancing wird als dynamischer Algorithmus definiert, bei dem die Verbindungen abhängig von Echtzeit-Analysen aufgeteilt werden.
+
+\begin{quote}
+	\textit{If you think of Weighted Round Robin where the circular queue is rebuilt with new (dynamic) weights whenever it has been fully traversed, you’ll be dead-on.}
+\end{quote}
+
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{images/lb_prio}
+		\caption{Dynamic Round Robin Algorithmus}
+		\label{broker}
+	\end{center}
+\end{figure}
+
+
+\newpage
+
+\subsection{Fastest}
+\label{Fastest}
+Die Methode Fastest übergibt die Verbindung basierend auf der schnellsten Reaktionszeit aller Server. Diese Methode kann besonders nützlich in Umgebungen sein, in denen Server über verschiedene \textbf{logische} Netzwerke verteilt sind.
+
+\begin{quote}
+	\textit{The load balancer looks at the response time of each attached server and chooses the one with the best response time. This is pretty straight-forward, but can lead to congestion because response time right now won’t necessarily be response time in 1 second or two seconds. Since connections are generally going through the load balancer, this algorithm is a lot easier to implement than you might think, as long as the numbers are kept up to date whenever a response comes through.}
+\end{quote}
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{images/lb_low}
+		\caption{Fastest Algorithmus}
+		\label{broker}
+	\end{center}
+\end{figure}
+
+\newpage
+\subsection{Least Connections}
+\label{Least Connections}
+Bei diesem Algorithmus werden neue Verbindungen zu dem Server weitergeleitet, welcher die wenigsten aktuellen Verbindungen hat. Am effizientesten arbeitet diese Methode in einem Netzwerk, bei dem alle Komponenten technisch eine gleiche Performance liefern. Es ist ebenfalls ein dynamischer Algorithmus, bei dem Echtzeit-Analysen das Verfahren beeinflussen können. 
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.8\linewidth]{images/lb_least}
+		\caption{Least Connections Algorithmus}
+		\label{broker}
+	\end{center}
+\end{figure}
+
+\subsection{Observed}
+\label{Observed}
+
+Das Observed-Verfahren verwendet eine Kombination aus der Logik, die in \textbf{Least} und \textbf{Fastest}-Connection Algorithmen enthalten sind, um die Verbindungen zu verteilen. In diesem Verfahren bekommen die Server ein \textit{Ranking}, abhängig von der Response-Time sowie die Dauer der letzten Verbindungen. Lange Verbindungen könnten hier eine ''unfaire'' Einstufung eines Servers führen und sind somit ein großer Nachteil.
+
+
+\begin{quote}
+	\textit{This algorithm tries to merge Fastest and Least Connections, which does make it more appealing than either one of the above than alone. In this case, an array is built with the information indicated and the element with the highest value is chosen to receive the connection. This somewhat counters the weaknesses of both of the original algorithms}
+\end{quote}
+
+\subsection{Predictive}
+\label{Predictive}
+
+Der Predictive Algorithmus verwendet das Ranking von \textbf{Observed}. Zusätzlich analysiert diese Methode auch noch das Verhalten der Server und bildet einen Trend, der das Ranking über die Zeit bestimmt. Server mit guter Performance befinden sich mit anderen Servern der selben Performance in einem Pool und bekommen somit mehr Verbindungen als andere Geräte. Diese prädiktive Methode lässt sich in jeder Architektur integrieren.
+
+\begin{quote}
+	\textit{This method attempts to fix the one problem with Observed by watching what is happening with the server. If its response time has started going down, it is less likely to receive the packet. Again, no idea what the weightings are, but an array is built and the most desirable is chosen.}
+\end{quote}
+
+
 \section{Verfahren von SLB}
 Es werden einige verschiedene Verfahren geboten, welche bei Server Load Balancing zum Einsatz kommen können. Ein mögliches Verfahren wäre das Vorschalten eines Systems (\textbf{Load Balancer, Frontend Server}), der Anfragen aufteilt, oder die Verwendung von DNS (Domain-Name-System) mit dem sogenannten \textbf{Round-Robin-Verfahren}. Bei Webservern darf eine Serverlastverteilung nicht fehlen, da ein einzelner Host nur eine begrenzte Anzahl an HTTP-Anfragen auf einmal beantworten kann. Es besteht auch die Möglichkeit, dass der Load Balancer die Verschlüsselung zum Client übernimmt und intern die Anfragen auf seine Art und Weise verarbeitet. \newline
 

@@ -1,22 +1,26 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 53 of file references.bib
+I was expecting a `,' or a `}'---line 36 of file references.bib
+ : @article{Load 
+ :               Balancing Algorithmen,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 63 of file references.bib
  : 
  : @article{RoundRobinDNS,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 62 of file references.bib
+I was expecting a `,' or a `}'---line 72 of file references.bib
  : 
  : @article{SRVResourceRecord,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 72 of file references.bib
+I was expecting a `,' or a `}'---line 82 of file references.bib
  : 
  : @article{BGP,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 81 of file references.bib
+I was expecting a `,' or a `}'---line 91 of file references.bib
  : 
  : @article{anycast,
 (Error may have been on previous line)
@@ -34,4 +38,4 @@ Warning--empty author in anycast
 Warning--empty journal in anycast
 Warning--empty author in BGP
 Warning--empty journal in BGP
-(There were 4 error messages)
+(There were 5 error messages)
