@@ -3,7 +3,14 @@
 \bibitem{Lastverteilung}
 Lastverteilung (informatik), definition und aufbau.
 \newblock 2016.
-\newblock \url{https://de.wikipedia.org/wiki/Lastverteilung_(Informatik)}.
+\newblock \url{https://de.wikipedia.org/wiki/Lastverteilung_(Informatik)},.
+
+\bibitem{LoadBalancingAlgorithmen}
+Don MacVittie.
+\newblock Beschreibung der algorithmen, mit grafiken.
+\newblock 2016.
+\newblock
+  \url{https://devcentral.f5.com/articles/intro-to-load-balancing-for-developers-ndash-the-algorithms}.
 
 \bibitem{LastverteilungPerDNS}
 Lastverteilung per dns, beschreibung der funktion und umsetzung.

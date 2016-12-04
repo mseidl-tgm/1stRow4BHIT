@@ -1,32 +1,34 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 36 of file references.bib
- : @article{Load 
- :               Balancing Algorithmen,
+I was expecting a `,' or a `}'---line 55 of file references.bib
+ : 
+ : @article{LastverteilungPerDNS,
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 63 of file references.bib
+I was expecting a `,' or a `}'---line 64 of file references.bib
  : 
  : @article{RoundRobinDNS,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 72 of file references.bib
+I was expecting a `,' or a `}'---line 73 of file references.bib
  : 
  : @article{SRVResourceRecord,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 82 of file references.bib
+I was expecting a `,' or a `}'---line 83 of file references.bib
  : 
  : @article{BGP,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 91 of file references.bib
+I was expecting a `,' or a `}'---line 92 of file references.bib
  : 
  : @article{anycast,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--empty author in Lastverteilung
 Warning--empty journal in Lastverteilung
+Warning--empty journal in LoadBalancingAlgorithmen
 Warning--empty author in LastverteilungPerDNS
 Warning--empty journal in LastverteilungPerDNS
 Warning--empty journal in RoundRobinDNS
