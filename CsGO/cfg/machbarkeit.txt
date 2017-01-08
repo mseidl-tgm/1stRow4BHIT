@@ -1,0 +1,13 @@
+﻿8 Machbarkeit
+Anforderung oder Projektziel steht in Einklang mit den wissenschaftlichen Erkenntnissen des jeweiligen Fachgebietes.
+
+9 Technische Machbarkeit
+Hier gilt es zu definieren ob das Projekt aus technischer Sicht überhaupt erfüllbar und umsetzbar ist. Android ist ein weitverbreitetes Bestriebssystem für Smartphones und bietet Sicherheit und gute Performance an. 
+Die Anforderung der Software and die Hardware bezüglich Speichergröße und Rechengeschwindigkeit sollte ebenfalls einhaltbar sein. 
+Stabile Netzübertragungsbandbreite sowie gute Stabilität sind Voraussetzungen die unbedingt erfüllt werden müssen.
+
+10 Wirtschaftliche Machbarkeit
+Die Kosten sollten sich komplett decken, d.h. es sollten keine zusätzlichen Ausgaben enstehen. Die meisten Kosten fließen in die Software selber, in die Programmierung der Logik und das Design. Am wenigsten Kosten werden die Ressourcen beanspruchen da fast alles in der Applikation implementiert ist.
+
+11 Persönliche Machbarkeit
+Die Projektmitglieder verfügen über die erforderlichen Kompetenzen und haben alle das Potenzial (!Lukas) den technischen Anforderungen des Projekts zu nachzukommen

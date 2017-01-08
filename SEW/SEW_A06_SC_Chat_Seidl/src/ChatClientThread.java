@@ -45,7 +45,7 @@ public class ChatClientThread extends Thread{
     }
 
     /*
-    Die run-Methode läuft in einer Endlosschleife, in der permanent auf den InputStream gelesen wird.
+    Die run-Methode läuft in einer Endlosschleife, in der permanent auf den InputStream gelesen wird.7
      */
     public void run(){
         while (true){
