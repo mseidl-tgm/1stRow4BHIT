@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}History}{1}{section.1}
+\contentsline {section}{\numberline {2}Software}{1}{section.2}
+\contentsline {section}{\numberline {3}Use by consumers}{1}{section.3}
+\contentsline {section}{\numberline {4}Bandwith and storage}{1}{section.4}
+\contentsline {section}{\numberline {5}Protocols}{1}{section.5}
+\contentsline {section}{\numberline {6}Applications and marketing}{1}{section.6}
+\contentsline {section}{\numberline {7}Recording}{1}{section.7}
+\contentsline {section}{\numberline {8}Copyright}{1}{section.8}
