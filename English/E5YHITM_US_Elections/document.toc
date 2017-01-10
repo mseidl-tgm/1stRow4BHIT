@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Summary}{1}{section.1}
+\contentsline {section}{\numberline {2}Background}{1}{section.2}
+\contentsline {section}{\numberline {3}Election process}{2}{section.3}
+\contentsline {section}{\numberline {4}Republican Party}{2}{section.4}
+\contentsline {section}{\numberline {5}Democratic Party}{3}{section.5}
+\contentsline {section}{\numberline {6}Third parties and independents}{4}{section.6}
+\contentsline {subsection}{\numberline {6.1}Libertarian Party}{4}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Green PArty}{5}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Independents}{5}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Constitution Party}{5}{subsection.6.4}
+\contentsline {section}{\numberline {7}General election campaign}{5}{section.7}
+\contentsline {subsection}{\numberline {7.1}Donald Trump}{5}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Hilary Clinton}{6}{subsection.7.2}
+\contentsline {section}{\numberline {8}Results 2016}{7}{section.8}
