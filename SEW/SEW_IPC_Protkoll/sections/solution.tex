@@ -1,0 +1,89 @@
+%!TEX root=../document.tex
+
+\section{Alogrithmus}
+	\begin{lstlisting}[style=Python, caption= Simpler Algorithmus des Selbstdurchlauf]
+	def doEverythingForMeSimple():
+	i = 0
+	j = 0
+	fortfahren = True
+	while(fortfahren):
+	time.sleep(0.25)
+	#ueberpruefen ob Lake am naechsten Feld
+	if (len(fielddata)==18):
+	print(fielddata[10])
+	if (fielddata[10]=='L' and j!=4):
+	goUp()
+	j += 1
+	i -= 1
+	else:
+	# Jeden Durchlauf eins nach unten
+	if (i >= 9):
+	if (fielddata[14] == 'L'):
+	goRight()
+	#i=-1
+	else:
+	goDown()
+	i = 0
+	elif (j >= 4):
+	# wenn ausgewichen nach oben, dann wieder nach unten gehen
+	goDown()
+	i -= 1
+	j = 0
+	else:
+	goRight()
+	elif (len(fielddata)==50):
+	print(fielddata[26])
+	if (fielddata[26] == 'L' and j!=4):
+	goUp()
+	j += 1
+	i -= 1
+	else:
+	# Jeden Durchlauf eins nach unten
+	if (i >= 9):
+	if (fielddata[34] == 'L'):
+	goRight()
+	#i = -1
+	else:
+	goDown()
+	i = 0
+	elif (j >= 4):
+	# wenn ausgewichen nach oben, dann wieder nach unten gehen
+	goDown()
+	i -= 1
+	j = 0
+	else:
+	goRight()
+	elif (len(fielddata)==98):
+	print(fielddata[50])
+	if (fielddata[50] == 'L' and j!=4):
+	goUp()
+	j += 1
+	i -= 1
+	else:
+	# Jeden Durchlauf eins nach unten
+	if (i >= 9):
+	if (fielddata[62] == 'L'):
+	goRight()
+	#i = -1
+	else:
+	goDown()
+	i = 0
+	elif (j >= 4):
+	# wenn ausgewichen nach oben, dann wieder nach unten gehen
+	goDown()
+	i -= 1
+	j = 0
+	else:
+	goRight()
+	else:
+	pass
+	i += 1
+	if (j>0):
+	j += 1
+	print("i: " + str(i))
+	print("j: " + str(j))
+	rec_fields(clientsocket)
+	if not fielddata:
+	fortfahren = False
+	clientsocket.close()
+	\end{lstlisting}

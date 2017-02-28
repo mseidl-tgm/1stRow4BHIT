@@ -1,0 +1,40 @@
+%!TEX root=../document.tex
+
+\section{Einführung}
+Diese Übung behandelt sich mit Docker-Images.
+\subsection{Ziele}
+Manuelle Erstellung
+\begin{itemize}
+	\item Linux-Basisimage aufsetzen
+	\item Dienst Installieren (mysql/postgresql/mongodb/couchbase/...)
+\end{itemize}
+Automatische Erstellung
+\begin{itemize}
+	\item Dockerfile, obige Image erstellen.
+\end{itemize}
+Verbundene Images
+\begin{itemize}
+	\item Starten und Konfigurieren des WordPress-Container
+\end{itemize}
+
+Abgabe des Protokolls (pdf) pro Gruppe - max 3. Personen / Gruppe.
+
+
+\subsection{Aufgabenstellung}
+Manuelle Erstellung
+\begin{itemize}
+	\item Starten Sie mit einem Linux-Basisimage (z.B. Debian oder Ubuntu)
+	\item Installieren Sie einen Dienst nach Wahl (mysql / postgresql / mongodb / couchbase / ..) und konfigurieren Sie diesen
+	\item Konfigurieren Sie den Container so, dass dieser automatisch den angegebenen Dienst startet
+\end{itemize}
+
+Automatische Erstellung
+\begin{itemize}
+	\item Erstellen Sie ein Dockerfile, welches das obige Image automatisch erstellt
+\end{itemize}
+
+\begin{itemize}
+	\item Laden Sie die folgenden Images: mysql, wordpress
+	\item Konfigurieren und Starten Sie den WordPress-Container so, dass dieser die Datenbank aus dem MySQL-Container verwendet (\url{https://hub.docker.com/_/wordpress/})
+\end{itemize}
+\clearpage
