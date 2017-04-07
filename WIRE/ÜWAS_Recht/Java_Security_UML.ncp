@@ -1,0 +1,144 @@
+<Project>
+  <Name>Java_Security_UML</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>UML</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Controller</Name>
+        <Access>Public</Access>
+        <Location left="1003" top="826" />
+        <Size width="172" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private char serverOrClient</Member>
+        <Member type="Field">private String message</Member>
+        <Member type="Field">private int port</Member>
+        <Member type="Field">private String ldapHost</Member>
+        <Member type="Field">private int newField</Member>
+        <Member type="Method">public void doMain(String[] args)</Member>
+        <Member type="Method">public static void main(String[] args)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Ldap_Client</Name>
+        <Access>Public</Access>
+        <Location left="1321" top="442" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private SecretKey secretKey</Member>
+        <Member type="Field">private PublicKey pubKey</Member>
+        <Member type="Field">private String ldapHost</Member>
+        <Member type="Method">public void getPublicKeyFromLdap()</Member>
+        <Member type="Method">public void setLdapHost(String ldapHost)</Member>
+        <Member type="Method">public void generateSecretKey()</Member>
+        <Member type="Method">public byte[] encryptSecret()</Member>
+        <Member type="Method">public byte[] decryptMessage(byte[] messageFromServer)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Service1</Name>
+        <Access>Public</Access>
+        <Location left="715" top="442" />
+        <Size width="162" height="315" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private KeyPair keyPair</Member>
+        <Member type="Field">private PublicKey pubKey</Member>
+        <Member type="Field">private PrivateKey privKey</Member>
+        <Member type="Field">private String ldapHost</Member>
+        <Member type="Field">private Key secretKey</Member>
+        <Member type="Field">private String toSendMessage</Member>
+        <Member type="Field">private int newField</Member>
+        <Member type="Method">public void setToSendMessage(String toSendMessage)</Member>
+        <Member type="Method">public void setLdapHost(String ldapHost)</Member>
+        <Member type="Method">public void genKeyPair()</Member>
+        <Member type="Method">public void storePubKeyinLDAP()</Member>
+        <Member type="Method">public void decryptSecretKey(byte[] secretKeyByte)</Member>
+        <Member type="Method">public byte[] encryptMessage()</Member>
+        <Member type="Method">public void newMethod()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UsedUtils</Name>
+        <Access>Public</Access>
+        <Location left="986" top="479" />
+        <Size width="197" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static String toHexString(byte[] array)</Member>
+        <Member type="Method">public static byte[] toByteArray(String s)</Member>
+        <Member type="Method">public static byte[] readFromSocket(Socket socket)</Member>
+        <Member type="Method">public static Object getPublicKey(Attributes attrs)</Member>
+        <Member type="Method">public static void writeToSocket(Socket socket, byte[] toSend)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LDAPConnector</Name>
+        <Access>Public</Access>
+        <Location left="1003" top="95" />
+        <Size width="162" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static String host</Member>
+        <Member type="Field">private static int port</Member>
+        <Member type="Field">private static String auth_user</Member>
+        <Member type="Field">private static String auth_password</Member>
+        <Member type="Field">private static DirContext ctx</Member>
+        <Member type="Method">public void setHost(String host)</Member>
+        <Member type="Method">public static void printSearchResult(NamingEnumeration namingEnum)</Member>
+        <Member type="Method">public static NamingEnumeration search(String inBase, String inFilter)</Member>
+        <Member type="Method">public static void updateAttribute(String inDN, String inAttribute, String inValue)</Member>
+        <Member type="Method">public static void main(String[] args)</Member>
+        <Member type="Constructor">public LDAPConnector(String host)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>

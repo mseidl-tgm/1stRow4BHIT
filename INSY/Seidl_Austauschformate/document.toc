@@ -1,0 +1,34 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Aufgabenstellung}{1}{section.1}
+\contentsline {section}{\numberline {2}XML - eXtensible Markup Language}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Herkunft}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Metasprache}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Dokumenttyp Definition (DTD)}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Beispiel}{2}{subsection.2.4}
+\contentsline {section}{\numberline {3}UML}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Herkunft}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Modellierungssprache}{3}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Diagrammtypen}{3}{subsection.3.3}
+\contentsline {section}{\numberline {4}EDI}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Herkunft}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}EDIFACT-Messages}{4}{subsection.4.2}
+\contentsline {section}{\numberline {5}Rich Text Format}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}Definition}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Aufbau}{4}{subsection.5.2}
+\contentsline {section}{\numberline {6}JSON - JavaScript object notation}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}Definition}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Aufbau}{5}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Elemente}{5}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Konzept}{5}{subsection.6.4}
+\contentsline {section}{\numberline {7}CSV - comma separated values}{6}{section.7}
+\contentsline {subsection}{\numberline {7.1}Definition}{6}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Verwendung}{6}{subsection.7.2}
+\contentsline {section}{\numberline {8}PostScript}{6}{section.8}
+\contentsline {subsection}{\numberline {8.1}Definition}{6}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Funktionsweise}{6}{subsection.8.2}
+\contentsline {section}{\numberline {9}HTML}{6}{section.9}
+\contentsline {subsection}{\numberline {9.1}Definition}{6}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Aufbau}{7}{subsection.9.2}
+\contentsline {section}{\numberline {10}Plain Text}{7}{section.10}
+\contentsline {subsection}{\numberline {10.1}Definition}{7}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Funktionsweise}{7}{subsection.10.2}
